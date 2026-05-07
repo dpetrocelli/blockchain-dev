@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de presentación — Diplomatura Blockchain UNLu 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #6B46C1;
+    --brand-deep: #44337A;
+    --brand-mid: #805AD5;
+    --brand-light: #B794F4;
+    --brand-soft: #FAF5FF;
+    --ink: #1A202C;
+    --muted: #4A5568;
+    --gray-line: #E2E8F0;
+    --bg: #F7FAFC;
+    --white: #FFFFFF;
+    --green: #2F855A;
+    --red: #C53030;
+    --amber: #B7791F;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+    font-size: 16px;
+  }
+  /* === Header === */
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, var(--brand-deep) 0%, var(--brand) 100%);
+    color: white;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid var(--brand-light);
+    box-shadow: 0 2px 12px rgba(68, 51, 122, 0.15);
+  }
+  header.top h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  header.top .meta {
+    font-size: 13px;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  /* === Layout === */
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 0;
+  }
+  /* === TOC sidebar === */
+  nav.toc {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding: 24px 16px 24px 32px;
+    border-right: 1px solid var(--gray-line);
+    background: var(--white);
+    font-size: 13.5px;
+  }
+  nav.toc h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 16px 0 8px;
+    font-weight: 700;
+  }
+  nav.toc h3:first-child { margin-top: 0; }
+  nav.toc a {
+    display: block;
+    padding: 6px 10px;
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: 6px;
+    border-left: 2px solid transparent;
+    margin-bottom: 2px;
+    transition: all 0.15s;
+  }
+  nav.toc a:hover {
+    background: var(--brand-soft);
+    border-left-color: var(--brand);
+    color: var(--brand-deep);
+  }
+  nav.toc a .num {
+    display: inline-block;
+    width: 22px;
+    color: var(--brand);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  /* === Main content === */
+  main {
+    padding: 32px 48px 80px;
+    max-width: 880px;
+  }
+  main > section {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  section h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--brand-deep);
+    margin: 0 0 6px;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 20px 0 8px;
+    letter-spacing: -0.005em;
+  }
+  section p { margin: 8px 0; }
+  /* === Slide header === */
+  .slide-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .slide-num {
+    background: var(--brand);
+    color: white;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  .slide-time {
+    background: var(--brand-soft);
+    color: var(--brand-deep);
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid var(--brand-light);
+  }
+  /* === Quote block (lo que decir) === */
+  blockquote.guion {
+    background: linear-gradient(135deg, var(--brand-soft) 0%, #F0E7FF 100%);
+    border-left: 4px solid var(--brand);
+    padding: 16px 20px;
+    margin: 12px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-style: italic;
+    position: relative;
+  }
+  blockquote.guion::before {
+    content: "🎤";
+    position: absolute;
+    left: -2px;
+    top: -10px;
+    background: var(--brand);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  blockquote.guion strong { color: var(--brand-deep); font-style: normal; }
+  /* === Tip / Warn boxes === */
+  .tip, .warn, .info {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .tip {
+    background: #F0FFF4;
+    border-left: 3px solid var(--green);
+    color: #1C4532;
+  }
+  .warn {
+    background: #FFFBEB;
+    border-left: 3px solid var(--amber);
+    color: #5F370E;
+  }
+  .info {
+    background: #EBF8FF;
+    border-left: 3px solid #2C5282;
+    color: #1A365D;
+  }
+  .tip strong, .warn strong, .info strong { display: block; margin-bottom: 2px; }
+  /* === Tables === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  table th {
+    background: var(--brand-deep);
+    color: white;
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gray-line);
+    vertical-align: top;
+  }
+  table tr:nth-child(even) { background: var(--brand-soft); }
+  table tr:hover td { background: #F0E7FF; }
+  /* === Pills === */
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--brand-soft);
+    color: var(--brand-deep);
+    border: 1px solid var(--brand-light);
+    margin: 2px;
+  }
+  .pill.green { background: #F0FFF4; color: var(--green); border-color: #9AE6B4; }
+  .pill.red { background: #FFF5F5; color: var(--red); border-color: #FEB2B2; }
+  /* === FAQ details === */
+  details {
+    background: var(--brand-soft);
+    border: 1px solid var(--brand-light);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    transition: all 0.15s;
+  }
+  details[open] {
+    background: var(--white);
+    border-color: var(--brand);
+    box-shadow: 0 2px 8px rgba(107, 70, 193, 0.1);
+  }
+  details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--brand-deep);
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  details summary::before {
+    content: "▶";
+    color: var(--brand);
+    font-size: 10px;
+    transition: transform 0.2s;
+  }
+  details[open] summary::before { transform: rotate(90deg); }
+  details summary::-webkit-details-marker { display: none; }
+  details .answer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--brand-light);
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+  /* === Glossary === */
+  dl.glossary {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 8px 16px;
+    margin: 0;
+  }
+  dl.glossary dt {
+    font-weight: 700;
+    color: var(--brand-deep);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-line);
+  }
+  dl.glossary dd {
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-line);
+    color: var(--muted);
+    font-size: 14px;
+  }
+  /* === Quick stats === */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .stat {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .stat .num {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 2px;
+    letter-spacing: -0.02em;
+  }
+  .stat .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+  }
+  /* === Checklist === */
+  ul.checklist { list-style: none; padding-left: 0; }
+  ul.checklist li {
+    padding: 6px 0 6px 28px;
+    position: relative;
+    font-size: 14.5px;
+  }
+  ul.checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--brand);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  /* === Code === */
+  code {
+    background: var(--brand-soft);
+    color: var(--brand-deep);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  /* === Print === */
+  @media print {
+    nav.toc, header.top { display: none; }
+    .layout { grid-template-columns: 1fr; }
+    main { padding: 0; }
+    main > section { box-shadow: none; page-break-inside: avoid; }
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    nav.toc { display: none; }
+    main { padding: 16px; }
+    dl.glossary { grid-template-columns: 1fr; gap: 0; }
+    dl.glossary dt { padding-bottom: 0; border: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>🎤 Guía de presentación · Diplomatura Blockchain UNLu 2026</h1>
+  <span class="meta">18 slides · ~25–30 min + Q&amp;A</span>
+</header>
+
+<div class="layout">
+
+<nav class="toc">
+  <h3>Antes de empezar</h3>
+  <a href="#tono"><span class="num">→</span>Tono general</a>
+  <a href="#datos-clave"><span class="num">→</span>Datos clave a memorizar</a>
+  <a href="#glosario"><span class="num">→</span>Glosario rápido</a>
+
+  <h3>Presentación slide-by-slide</h3>
+  <a href="#s1"><span class="num">1.</span>Portada</a>
+  <a href="#s2"><span class="num">2.</span>Contexto global</a>
+  <a href="#s3"><span class="num">3.</span>Mercado y demanda</a>
+  <a href="#s4"><span class="num">4.</span>Argentina capital Web3</a>
+  <a href="#s5"><span class="num">5.</span>Empresas argentinas</a>
+  <a href="#s6"><span class="num">6.</span>Diagnóstico</a>
+  <a href="#s7"><span class="num">7.</span>Pillar quote</a>
+  <a href="#s8"><span class="num">8.</span>El Programa</a>
+  <a href="#s9"><span class="num">9.</span>Plan oficial</a>
+  <a href="#s10"><span class="num">10.</span>Perfil de ingreso</a>
+  <a href="#s11"><span class="num">11.</span>Lo que vas a construir</a>
+  <a href="#s12"><span class="num">12.</span>Stack tecnológico</a>
+  <a href="#s13"><span class="num">13.</span>Equipo docente</a>
+  <a href="#s14"><span class="num">14.</span>Salida laboral</a>
+  <a href="#s15"><span class="num">15.</span>Diferencia</a>
+  <a href="#s16"><span class="num">16.</span>Aranceles</a>
+  <a href="#s17"><span class="num">17.</span>Inscripción</a>
+  <a href="#s18"><span class="num">18.</span>Cierre y Q&amp;A</a>
+
+  <h3>Defensa</h3>
+  <a href="#faq"><span class="num">?</span>Preguntas frecuentes</a>
+  <a href="#objeciones"><span class="num">!</span>Manejo de objeciones</a>
+  <a href="#evitar"><span class="num">⚠</span>Cosas a evitar decir</a>
+  <a href="#checklist"><span class="num">✓</span>Checklist pre-presentación</a>
+</nav>
+
+<main>
+
+<!-- ============ TONO ============ -->
+<section id="tono">
+  <h2>Tono general</h2>
+  <p>Hablás como alguien del equipo, <strong>no como vendedor</strong>. La frase que mejor resume el espíritu del programa es <em>"para quien quiere construir, no especular"</em>.</p>
+
+  <div class="tip">
+    <strong>3 reglas de oro</strong>
+    1. Cada vez que tires un número, mencioná la fuente (web3.career, Cyfrin, CryptoJobsList, Chainalysis). Genera credibilidad inmediata.<br>
+    2. Si no sabés algo, decí <em>"buena pregunta, te respondo en Q&amp;A o por mail"</em>. <strong>No improvises sueldos ni rangos</strong>.<br>
+    3. Tiempo objetivo por slide: ~1:30. Slides 8 (Programa) y 16 (Aranceles) pueden estirarse a 3 min.
+  </div>
+
+  <div class="info">
+    <strong>Postura corporal</strong>
+    Hombros relajados. Sonrisa al saludar. Pausas de 2 segundos después de cada dato fuerte (números, frases pillar) — eso da peso.
+  </div>
+</section>
+
+<!-- ============ DATOS CLAVE ============ -->
+<section id="datos-clave">
+  <h2>Datos clave a tener memorizados</h2>
+  <p>Si te preguntan algo de estos, tenés que contestar <strong>sin dudar</strong>:</p>
+
+  <div class="stat-grid">
+    <div class="stat"><span class="num">$170k</span><span class="label">Matrícula ARS</span></div>
+    <div class="stat"><span class="num">$850k</span><span class="label">Total ARS</span></div>
+    <div class="stat"><span class="num">4 cuotas</span><span class="label">de $170k</span></div>
+    <div class="stat"><span class="num">30</span><span class="label">cupos</span></div>
+    <div class="stat"><span class="num">4 meses</span><span class="label">duración</span></div>
+    <div class="stat"><span class="num">Agosto</span><span class="label">arranque 2026</span></div>
+  </div>
+
+  <h3>Datos del mercado (todos verificables)</h3>
+  <table>
+    <thead>
+      <tr><th>Dato</th><th>Valor</th><th>Fuente</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Devs Web3 activos mensuales</td><td>22.000+</td><td>Electric Capital 2024</td></tr>
+      <tr><td>Mercado blockchain proyectado 2030</td><td>US$1.4 trillones</td><td>Grand View Research</td></tr>
+      <tr><td>Valor cripto transado 2024</td><td>US$1.5 trillones</td><td>Chainalysis 2024</td></tr>
+      <tr><td>Promedio Blockchain Developer</td><td>US$150k/año</td><td>web3.career abril 2026</td></tr>
+      <tr><td>Smart Contract Auditor avg</td><td>US$102k/año</td><td>Cyfrin 2025</td></tr>
+      <tr><td>Roles Web3 LATAM 2025</td><td>1.097 (+89% YoY)</td><td>CryptoJobsList</td></tr>
+      <tr><td>Argentinos con cripto</td><td>18,9% (#4 mundial)</td><td>Triple A 2024</td></tr>
+      <tr><td>Asistentes Devconnect BA 2025</td><td>16.000+</td><td>Ethereum Foundation</td></tr>
+      <tr><td>Devs argentinos</td><td>115.000+ · +27.000/año</td><td>US Trade.gov</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ GLOSARIO ============ -->
+<section id="glosario">
+  <h2>Glosario rápido — términos que tenés que poder explicar</h2>
+
+  <dl class="glossary">
+    <dt>Smart contract</dt>
+    <dd>Programa que se ejecuta en una blockchain. Una vez desplegado nadie lo puede modificar. Ej: un sistema de votación, un préstamo automático.</dd>
+
+    <dt>Solidity</dt>
+    <dd>Lenguaje de programación de smart contracts en Ethereum y compatibles. Lo más cercano es JavaScript / C++.</dd>
+
+    <dt>Foundry</dt>
+    <dd>Framework de desarrollo y testing de smart contracts. Estándar moderno (lo usan Uniswap, Aave, etc). Reemplazó a Hardhat en proyectos serios.</dd>
+
+    <dt>Anvil</dt>
+    <dd>Blockchain local de Foundry para desarrollar y testear sin gastar gas.</dd>
+
+    <dt>cast</dt>
+    <dd>CLI de Foundry para interactuar con contratos desplegados (leer estado, mandar transacciones).</dd>
+
+    <dt>OpenZeppelin</dt>
+    <dd>Librería de contratos auditados y reutilizables (ERC-20, ERC-721, control de accesos). Es como la "stdlib" de Solidity.</dd>
+
+    <dt>Slither</dt>
+    <dd>Herramienta open-source para detectar vulnerabilidades en smart contracts (reentrancia, overflow, etc).</dd>
+
+    <dt>Next.js / wagmi / RainbowKit</dt>
+    <dd>Stack frontend Web3: Next.js (React framework), wagmi (hooks para conectar wallet), RainbowKit (UI de conexión de wallet).</dd>
+
+    <dt>ethers.js</dt>
+    <dd>Librería JavaScript para interactuar con Ethereum desde el frontend o backend.</dd>
+
+    <dt>EVM</dt>
+    <dd>Ethereum Virtual Machine. La "máquina virtual" donde corren todos los contratos. Compatible con Polygon, Base, Arbitrum, etc.</dd>
+
+    <dt>Gas</dt>
+    <dd>Costo de ejecutar una transacción en la blockchain. Más cómputo = más gas. Se paga en la moneda nativa (ETH, MATIC, etc).</dd>
+
+    <dt>Layer 1 (L1)</dt>
+    <dd>La blockchain principal (Ethereum, Bitcoin). Más segura, más lenta, más cara.</dd>
+
+    <dt>Layer 2 (L2)</dt>
+    <dd>Blockchain que opera "encima" de una L1 para escalar (más rápido, más barato). Ej: Base, Arbitrum, Optimism, Polygon.</dd>
+
+    <dt>Sepolia</dt>
+    <dd>Testnet oficial de Ethereum. Sirve para probar contratos sin gastar dinero real.</dd>
+
+    <dt>Base Sepolia</dt>
+    <dd>Testnet de Base, la L2 de Coinbase. Misma idea pero capa 2.</dd>
+
+    <dt>BFA</dt>
+    <dd>Blockchain Federal Argentina. Red blockchain pública argentina, usada por gobiernos provinciales y municipios.</dd>
+
+    <dt>ERC-721</dt>
+    <dd>Estándar de tokens no fungibles (NFTs). Cada token es único. Ejemplos: certificados, arte digital, propiedades.</dd>
+
+    <dt>SBT (Soulbound Token)</dt>
+    <dd>NFT no transferible. Sirve para credenciales académicas, identidad, reputación. No se pueden vender ni regalar.</dd>
+
+    <dt>DApp</dt>
+    <dd>Aplicación descentralizada. Backend (smart contract) en blockchain + frontend tradicional.</dd>
+
+    <dt>DAO</dt>
+    <dd>Organización Autónoma Descentralizada. Reglas de gobernanza codificadas en smart contracts.</dd>
+
+    <dt>DeFi</dt>
+    <dd>Finanzas descentralizadas. Protocolos como Uniswap (intercambio), Aave (préstamos), MakerDAO (stablecoin).</dd>
+
+    <dt>Stablecoin</dt>
+    <dd>Cripto con valor estable atado a una moneda fiat (USD, ARS). Ej: USDT, USDC, wARS (Ripio).</dd>
+
+    <dt>Wallet</dt>
+    <dd>Software que custodia las claves privadas. MetaMask es la más popular. La wallet firma transacciones.</dd>
+
+    <dt>Tokenización</dt>
+    <dd>Representar un activo del mundo real (inmueble, bono, oro) como un token en blockchain.</dd>
+
+    <dt>RWA</dt>
+    <dd>Real World Assets. Tokenización de activos del mundo real. Tendencia fuerte 2024-2026.</dd>
+
+    <dt>KYC on-chain</dt>
+    <dd>Verificación de identidad usando credenciales en blockchain en lugar de PDFs y bases de datos centralizadas.</dd>
+
+    <dt>ZKP</dt>
+    <dd>Zero-Knowledge Proof. Probar algo sin revelar el dato (ej: probar mayoría de edad sin mostrar el DNI).</dd>
+
+    <dt>Devconnect</dt>
+    <dd>Conferencia anual de la Ethereum Foundation. La edición 2025 fue en Buenos Aires con 16.000+ asistentes.</dd>
+  </dl>
+</section>
+
+<!-- ============ SLIDES ============ -->
+
+<section id="s1">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 1</span>
+    <span class="slide-time">⏱ 30 seg</span>
+  </div>
+  <h2>Portada</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Bienvenidos a la <strong>charla informativa de la Diplomatura en Blockchain de la UNLu, cohorte 2026</strong>. Soy David, parte del equipo docente. En los próximos 25 minutos les voy a contar para qué los prepara, qué van a construir, quiénes les van a enseñar, y al final hay tiempo para preguntas.
+  </blockquote>
+  <div class="tip"><strong>Anclá expectativas:</strong> "no es un curso de cripto-trading, es desarrollo blockchain serio".</div>
+</section>
+
+<section id="s2">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 2</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>Contexto global</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Para entender por qué este programa existe, miremos el mercado. <strong>Electric Capital reportó en 2024 que el ecosistema Web3 tiene más de 22.000 desarrolladores activos mensuales</strong>. Grand View Research proyecta que el mercado blockchain va a llegar a <strong>US$1.4 trillones en 2030</strong>. No es una burbuja — es infraestructura financiera global que se está construyendo ahora.
+  </blockquote>
+  <div class="info"><strong>Insight para tirar</strong> Web3 sobrevivió 3 inviernos cripto y los desarrolladores siguen creciendo. Eso es señal de tracción real.</div>
+  <h3>Si te preguntan "¿no es todo humo?"</h3>
+  <blockquote class="guion">
+    Bitcoin tiene 16 años, Ethereum 10. Si fuera humo, ya se habría disipado. Lo que cambió es que ahora bancos, gobiernos y empresas tradicionales lo están integrando — eso es lo que demanda perfiles formados.
+  </blockquote>
+</section>
+
+<section id="s3">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 3</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>Mercado y demanda</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Chainalysis 2024 reporta <strong>US$1.5 trillones en valor transado</strong> en el ecosistema cripto. web3.career lista miles de roles abiertos con salarios promedio de <strong>US$150k al año</strong>. La demanda existe — el cuello de botella es la oferta de gente formada.
+  </blockquote>
+  <div class="tip"><strong>Frase para enganchar</strong> "El problema no es encontrar trabajo en Web3, es encontrar gente que sepa hacerlo."</div>
+</section>
+
+<section id="s4">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 4</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>Argentina, capital Web3 de LATAM</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    ¿Y por qué Argentina? Tres datos concretos, todos verificables: <strong>18,9% de los argentinos tienen cripto</strong> — somos número 4 del mundo, arriba de Brasil y EEUU. <strong>Devconnect 2025</strong>, el evento más grande de Ethereum, eligió Buenos Aires y trajo 16.000 personas a La Rural. Y Argentina tiene <strong>115.000 desarrolladores con 27.000 nuevos por año</strong> según US Trade.gov. Tenemos el talento técnico y la adopción cripto más altos de la región — somos el lugar natural donde tiene que pasar esto.
+  </blockquote>
+  <div class="tip">Anclá orgullo local sin sonar chauvinista.</div>
+</section>
+
+<section id="s5">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 5</span>
+    <span class="slide-time">⏱ 1:30</span>
+  </div>
+  <h2>Empresas argentinas que contratan</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Esto no es teoría: <strong>Lemon</strong> tiene 4 millones de usuarios y levantó una Serie B de US$20M. <strong>Ripio</strong> tiene 1.5 millones de usuarios y lanzó wARS, la primera stablecoin del peso argentino. <strong>Decentraland</strong> se fundó en Buenos Aires y opera sobre Ethereum. <strong>Rather Labs, Koibanx, Xcapit, Agrotoken</strong> — son empresas argentinas operando hoy en DeFi, tokenización e infraestructura blockchain, y todas necesitan perfiles que ustedes pueden ser después de esta diplomatura.
+  </blockquote>
+  <div class="info"><strong>Si conocés a alguien que trabaja en esas empresas</strong> Mencionalo. Vuelve concreto el camino.</div>
+</section>
+
+<section id="s6">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 6</span>
+    <span class="slide-time">⏱ 1:30</span>
+  </div>
+  <h2>Diagnóstico</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Acá está el problema: hay demanda, hay capital, hay empresas — pero <strong>no hay formación universitaria seria</strong>. Lo que existe son cursos privados de US$2.000–5.000 con certificado privado, o tutoriales gratis de YouTube. <strong>No hay un camino formal de posgrado para entrar al mercado</strong>. Esa es la brecha que esta diplomatura llena.
+  </blockquote>
+  <div class="tip"><strong>Punch</strong> "Cuando un empleador ve un certificado de UNLu, sabe que pasaste por un programa serio con defensa de proyecto."</div>
+</section>
+
+<section id="s7">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 7</span>
+    <span class="slide-time">⏱ 45 seg</span>
+  </div>
+  <h2>Pillar quote</h2>
+  <h3>Qué decir (leerla con énfasis)</h3>
+  <blockquote class="guion">
+    "Para quien quiere construir, no especular." Esa es nuestra promesa. Si lo que quieren es comprar y vender cripto, esta diplomatura no es para ustedes. Pero si quieren entender cómo funciona la infraestructura, escribir contratos inteligentes y construir aplicaciones reales — están en el lugar correcto.
+  </blockquote>
+  <div class="warn"><strong>Pausa de 2 segundos después de leerla.</strong> El silencio le da peso.</div>
+</section>
+
+<section id="s8">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 8</span>
+    <span class="slide-time">⏱ 3 min</span>
+  </div>
+  <h2>El Programa</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    La diplomatura tiene <strong>4 módulos</strong>. El primero son fundamentos: criptografía, hashes, EVM, gas, redes Layer 1 y Layer 2. El segundo entra a <strong>Solidity y Foundry</strong>, donde van a escribir y testear sus primeros contratos. El tercero son estándares — <strong>ERC-721, NFTs, despliegue en redes públicas</strong>. Y el cuarto cierra con <strong>frontend Web3</strong> (Next.js, wagmi, RainbowKit) y auditoría de seguridad con <strong>Slither</strong>.
+  </blockquote>
+  <div class="info"><strong>Tiempos</strong> "Son 4 meses, una clase semanal, sincrónica online, con grabaciones disponibles."</div>
+</section>
+
+<section id="s9">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 9</span>
+    <span class="slide-time">⏱ 1 min</span>
+  </div>
+  <h2>Plan de estudios oficial</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Acá tienen el plan oficial firmado con UNLu. Lo subimos a la web para que lo puedan revisar con tiempo. Cualquier consulta sobre contenidos puntuales se las contestamos por mail.
+  </blockquote>
+  <div class="warn"><strong>No te detengas mucho</strong> — es slide de respaldo, no de venta.</div>
+</section>
+
+<section id="s10">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 10</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>Perfil de ingreso</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Esta diplomatura es <strong>deliberadamente multidisciplinaria</strong>. Web3 no es solo código — necesita derecho, economía, gestión e investigación trabajando juntos. Los perfiles que más matchean son: <strong>desarrolladores</strong> que dan el salto a Web3, <strong>abogados y contadores</strong> que necesitan entender regtech y régimen AFIP cripto, <strong>emprendedores</strong> que llevan su idea a Web3, <strong>estudiantes avanzados</strong> que buscan especialización antes de graduarse, <strong>docentes</strong> que quieren antecedente formal de posgrado, y <strong>profesionales de finanzas</strong> que quieren entender DeFi desde el código, no desde el marketing.
+  </blockquote>
+  <div class="tip"><strong>Si alguien duda "¿es para mí?":</strong> "Si tenés ganas y un mínimo de base técnica o de un área conectada, sí. El programa está diseñado para que distintos perfiles se complementen."</div>
+</section>
+
+<section id="s11">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 11</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>Lo que vas a construir</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Estos son ejemplos del tipo de proyectos que podrían construir con el stack: <strong>una DApp de tokenización de activos reales</strong>, <strong>una plataforma DeFi de yield farming</strong>, <strong>una DAO con governance on-chain</strong>, o <strong>un sistema de identidad digital con Soulbound Tokens</strong>. Pero el proyecto integrador final lo definimos con cada cohorte según los intereses reales — no es un molde fijo.
+  </blockquote>
+  <div class="info"><strong>Vendé concreto</strong> "En cohortes anteriores hicimos sistemas de credenciales académicas verificables on-chain. Es algo que después pueden mostrar en GitHub y en su CV."</div>
+</section>
+
+<section id="s12">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 12</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>Stack tecnológico</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Todo lo que ven acá es <strong>open source o free tier</strong> — todo lo que aprenden lo siguen usando después de la diplomatura. Smart contracts en <strong>Solidity con Foundry</strong>, librerías estándar de <strong>OpenZeppelin</strong>, auditoría con <strong>Slither</strong>. Frontend con <strong>Next.js, wagmi, RainbowKit y ethers.js</strong> — el stack que usan empresas como Coinbase y Uniswap. Y desplegamos en testnets reales: <strong>Sepolia y Base Sepolia</strong>, que es la L2 de Coinbase.
+  </blockquote>
+  <div class="tip"><strong>Diferenciador</strong> "No vamos a usar herramientas propietarias ni plataformas que dependan de pagar una licencia. Todo lo que aprenden es de la industria real."</div>
+</section>
+
+<section id="s13">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 13</span>
+    <span class="slide-time">⏱ 3 min</span>
+  </div>
+  <h2>Equipo docente</h2>
+  <h3>Qué decir (uno por uno, con foco en credibilidad)</h3>
+  <blockquote class="guion">
+    El equipo no son profesores teóricos. <strong>David Petrocelli</strong> es Senior Cloud Architect en Caylent, una empresa con sede en EEUU — trabaja todos los días con AWS y blockchain en producción. Hay <strong>fundadores de fintech</strong>, <strong>operadores de derivados de A3 Mercados</strong>, e <strong>investigadores CONICET</strong>. Es gente que está construyendo en la industria y enseña los miércoles a la noche.
+  </blockquote>
+  <div class="info"><strong>Si tenés tiempo</strong> Mencioná un proyecto concreto de cada docente.</div>
+</section>
+
+<section id="s14">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 14</span>
+    <span class="slide-time">⏱ 2:30</span>
+  </div>
+  <h2>Salida laboral</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Acá los números — todos verificables, fuentes al pie. <strong>Smart Contract Developer</strong>: junior arranca en US$80k al año, senior llega a US$250k. <strong>Blockchain Developer</strong> general: web3.career reporta promedio de US$150k. <strong>Smart Contract Auditor</strong>: el rol más caro del mercado, Cyfrin reporta promedio US$102k y top platforms US$200–500k. En LATAM, el rango va de US$70 a US$257k para roles full-time remotos. <strong>El mercado en LATAM creció 89% año contra año.</strong>
+  </blockquote>
+  <div class="warn"><strong>Honestidad obligada</strong> "Importante: los salarios senior se concentran en EEUU y Europa. LATAM remoto suele estar en la mitad inferior del rango. No vamos a prometerles US$200k a los 6 meses — pero les damos las herramientas para entrar al mercado y escalar desde ahí."</div>
+</section>
+
+<section id="s15">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 15</span>
+    <span class="slide-time">⏱ 2 min</span>
+  </div>
+  <h2>¿En qué se diferencia?</h2>
+  <h3>Qué decir (4 puntos firmes)</h3>
+  <blockquote class="guion">
+    Cuatro razones concretas por las que esta diplomatura es distinta. <strong>Primero</strong>: título de posgrado UNLu, universidad pública nacional, validez oficial — no un certificado privado de plataforma. <strong>Segundo</strong>: cohorte chica de 30 alumnos, no un MOOC masivo. <strong>Tercero</strong>: docentes activos en la industria, no profesores teóricos full-time. <strong>Cuarto</strong>: práctica sobre redes reales, terminás con portfolio técnico que mostrás a empleadores.
+  </blockquote>
+  <div class="tip"><strong>Punch final</strong> "Es el único título de posgrado universitario en blockchain en Argentina hoy."</div>
+</section>
+
+<section id="s16">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 16</span>
+    <span class="slide-time">⏱ 3 min</span>
+  </div>
+  <h2>Aranceles</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    <strong>Matrícula de $170.000 más 4 cuotas de $170.000 — total $850.000 pesos argentinos.</strong> Para que tengan referencia, eso son aproximadamente US$850 al cambio actual, contra los US$2.000–5.000 que cobran cursos privados sin título oficial. Hay opción de inscripción anticipada con descuento — lo vemos en el próximo slide.
+  </blockquote>
+  <div class="tip"><strong>Anclá valor</strong> "Pensá que un solo trabajo freelance de smart contracts paga la diplomatura entera."</div>
+  <div class="info"><strong>Si hay objeción de precio</strong> "Entiendo que es una inversión. Lo que les damos a cambio es título universitario oficial, defensa de proyecto, y red de contactos en la industria. No es un certificado más en LinkedIn."</div>
+</section>
+
+<section id="s17">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 17</span>
+    <span class="slide-time">⏱ 1:30</span>
+  </div>
+  <h2>Inscripción anticipada</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Para quienes se inscriben en los próximos días, hay <strong>descuento por inscripción anticipada</strong>. Los cupos son limitados — la cohorte es de 30 personas. Mi recomendación: si están convencidos, asegúrense el lugar ahora.
+  </blockquote>
+  <div class="info"><strong>Crear urgencia sin manipular</strong> "Las cohortes anteriores se llenaron antes de la fecha límite."</div>
+</section>
+
+<section id="s18">
+  <div class="slide-head">
+    <span class="slide-num">SLIDE 18</span>
+    <span class="slide-time">⏱ resto del tiempo</span>
+  </div>
+  <h2>Cierre y Q&amp;A</h2>
+  <h3>Qué decir</h3>
+  <blockquote class="guion">
+    Eso es todo de mi parte. Acá tienen mis datos de contacto, el formulario de inscripción y el plan oficial. Ahora sí — <strong>abro preguntas</strong>.
+  </blockquote>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <h2>Preguntas frecuentes — respuestas armadas</h2>
+  <p>Click para expandir cada respuesta. <strong>Tip</strong>: léelas en voz alta antes de presentar.</p>
+
+  <details>
+    <summary>¿Necesito saber programar?</summary>
+    <div class="answer">Sí, base mínima de programación (variables, funciones, condicionales). No hace falta saber Solidity — se enseña desde cero. Si nunca programaste, recomendamos hacer un curso introductorio de Python o JavaScript primero.</div>
+  </details>
+
+  <details>
+    <summary>¿Es 100% online?</summary>
+    <div class="answer">Sí, sincrónico online vía Zoom o Meet, con grabaciones disponibles después de cada clase. Hay encuentros opcionales presenciales en UNLu para quienes puedan asistir.</div>
+  </details>
+
+  <details>
+    <summary>¿Hay beca o financiación?</summary>
+    <div class="answer">Hay descuento por inscripción anticipada. Para becas formales, hay que consultar directamente con la Dirección de Posgrado de UNLu — algunos casos puntuales pueden gestionarse.</div>
+  </details>
+
+  <details>
+    <summary>¿Cuándo empieza?</summary>
+    <div class="answer">Agosto 2026. Una clase semanal los miércoles a la noche, de 19 a 22hs aproximadamente. Calendario completo se entrega al inscribirse.</div>
+  </details>
+
+  <details>
+    <summary>¿Qué pasa si me atraso con un pago?</summary>
+    <div class="answer">Hay flexibilidad — se coordina caso por caso con la Dirección. No te van a sacar del programa por un mes de atraso. Lo importante es comunicar.</div>
+  </details>
+
+  <details>
+    <summary>¿Me consigue trabajo después?</summary>
+    <div class="answer">No prometemos colocación laboral. Lo que sí te damos: portfolio técnico real (proyectos en GitHub), título de posgrado, red de contactos en la industria, y referencias de docentes que trabajan en empresas Web3. El resto depende de vos. La mayoría de los egresados de cohortes anteriores consiguió trabajo o freelance dentro del año.</div>
+  </details>
+
+  <details>
+    <summary>¿Sirve para hacer un doctorado o maestría después?</summary>
+    <div class="answer">Sí — es título de posgrado oficial UNLu, antecedente válido para maestrías y doctorados en cualquier universidad argentina y la mayoría de universidades internacionales.</div>
+  </details>
+
+  <details>
+    <summary>¿Por qué Foundry y no Hardhat?</summary>
+    <div class="answer">Foundry es el estándar actual en proyectos Web3 serios — más rápido, mejor testing, lo usan Uniswap, Aave, Optimism, etc. Hardhat sigue siendo válido pero la industria está migrando. Enseñamos lo que vas a usar profesionalmente en 2026+.</div>
+  </details>
+
+  <details>
+    <summary>¿Vamos a desplegar en mainnet?</summary>
+    <div class="answer">En testnets sí (Sepolia, Base Sepolia) — siempre. En mainnet depende del proyecto integrador y el costo de gas. Si el alumno quiere desplegar su proyecto final en mainnet real, lo asesoramos pero el costo del gas corre por cuenta del alumno.</div>
+  </details>
+
+  <details>
+    <summary>¿Qué pasa si me pierdo una clase?</summary>
+    <div class="answer">Las clases quedan grabadas. También hay un canal de Discord/Slack para consultas asíncronas. Si te perdés muchas clases seguidas, se conversa con coordinación.</div>
+  </details>
+
+  <details>
+    <summary>¿Qué nivel de inglés necesito?</summary>
+    <div class="answer">Lectura técnica básica. Toda la documentación de Solidity, Foundry, OpenZeppelin está en inglés. Las clases son en castellano. Si podés leer un README de GitHub, estás listo.</div>
+  </details>
+
+  <details>
+    <summary>¿Puedo hacer la diplomatura desde el exterior?</summary>
+    <div class="answer">Sí. Tenemos alumnos desde Uruguay, Chile, España, México. Solo hace falta cubrir la matrícula y cuotas vía transferencia internacional o cripto.</div>
+  </details>
+
+  <details>
+    <summary>¿Aceptan pago en cripto?</summary>
+    <div class="answer">Está en evaluación con la administración UNLu. La modalidad oficial actual es transferencia bancaria o Pago Mis Cuentas. Para casos particulares (alumnos del exterior), consultar con coordinación.</div>
+  </details>
+
+  <details>
+    <summary>¿Qué computadora necesito?</summary>
+    <div class="answer">Cualquier laptop razonable de los últimos 5 años con 8GB de RAM mínimo. Linux/Mac preferible, pero Windows con WSL funciona. Todas las herramientas son gratuitas.</div>
+  </details>
+
+  <details>
+    <summary>¿Tengo que comprar cripto para hacer el curso?</summary>
+    <div class="answer">No. Trabajamos con testnets que tienen "ETH falso" gratis. Solo si querés desplegar tu proyecto final en mainnet por iniciativa propia.</div>
+  </details>
+
+  <details>
+    <summary>¿Hay clase de regulación / aspectos legales?</summary>
+    <div class="answer">Sí — el módulo de fundamentos cubre el marco regulatorio actual (régimen AFIP cripto, ley de PSAV) y casos de uso de regtech. No es asesoramiento legal pero da el marco para que abogados profundicen.</div>
+  </details>
+
+  <details>
+    <summary>¿Por qué UNLu y no otra universidad?</summary>
+    <div class="answer">Universidad Nacional de Luján es pública, gratuita en grado, con tradición fuerte en sistemas y blockchain. El Departamento de Ciencias Básicas tiene investigadores CONICET y conexión real con la industria. Es la primera universidad pública argentina en lanzar una diplomatura blockchain con título oficial.</div>
+  </details>
+</section>
+
+<!-- ============ OBJECIONES ============ -->
+<section id="objeciones">
+  <h2>Manejo de objeciones (las que más te van a tirar)</h2>
+
+  <details>
+    <summary>"Es muy caro"</summary>
+    <div class="answer">Reconocé el punto. Después comparalo: cursos privados sin título oficial cuestan US$2.000–5.000. Bootcamps internacionales cuestan US$8.000–15.000. La diplomatura UNLu es US$850 con título de posgrado. Cierre: <em>"Un solo trabajo freelance de smart contracts paga la diplomatura entera."</em></div>
+  </details>
+
+  <details>
+    <summary>"Puedo aprender lo mismo gratis en YouTube"</summary>
+    <div class="answer">Es cierto que hay contenido gratis. Lo que no podés conseguir gratis: <strong>defensa de proyecto frente a tribunal</strong>, <strong>título oficial</strong>, <strong>feedback uno-a-uno de docentes</strong>, <strong>red de contactos</strong>. La diferencia es estructura + acreditación + comunidad.</div>
+  </details>
+
+  <details>
+    <summary>"No tengo tiempo, trabajo full-time"</summary>
+    <div class="answer">La cohorte está pensada para profesionales que trabajan. Una clase semanal de 3hs + 4-6hs de práctica autogestionada por semana. Todas las clases quedan grabadas. La mayoría de los alumnos trabaja full-time.</div>
+  </details>
+
+  <details>
+    <summary>"¿Y si no me sirve para conseguir trabajo?"</summary>
+    <div class="answer">Honestidad: nadie puede garantizarte trabajo. Lo que sí podemos garantizarte: <strong>vas a saber construir DApps end-to-end</strong>, <strong>vas a tener un proyecto real en GitHub para mostrar</strong>, y <strong>vas a tener un título oficial</strong>. Eso te pone en la conversación. El cierre depende de tu CV global.</div>
+  </details>
+
+  <details>
+    <summary>"¿Por qué no hacen una maestría en lugar de una diplomatura?"</summary>
+    <div class="answer">Una maestría requiere 2 años + tesis. La diplomatura te da el conocimiento práctico en 4 meses, con título oficial. Si después querés hacer una maestría, esta diplomatura es un antecedente sólido. Es el equilibrio entre profundidad técnica y tiempo razonable.</div>
+  </details>
+
+  <details>
+    <summary>"Los sueldos que muestran son de EEUU, no de Argentina"</summary>
+    <div class="answer">Verdad. Por eso aclaramos en el slide: "salarios senior se concentran en EEUU/EU; LATAM remoto suele ubicarse en la mitad inferior del rango". Pero también es real que muchos roles Web3 son <strong>remotos internacionales</strong> y pagan en USD/stablecoins. Argentinos ya cobran en USD trabajando para empresas internacionales — no es ciencia ficción.</div>
+  </details>
+
+  <details>
+    <summary>"Mi área (X) no aparece en los perfiles"</summary>
+    <div class="answer">Los 6 perfiles del slide son los más comunes pero no son una lista cerrada. Tenemos alumnos de sociología, periodismo, biología, arte. Si tu área conecta con tokenización, identidad digital, gobernanza, finanzas o tecnología — hay match. Mejor: agendá una llamada y vemos tu caso.</div>
+  </details>
+</section>
+
+<!-- ============ EVITAR ============ -->
+<section id="evitar">
+  <h2>Cosas a NO decir</h2>
+  <p>Esto te quema credibilidad inmediata:</p>
+  <ul style="list-style: none; padding-left: 0;">
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> "Te vas a hacer rico" / "vas a cobrar US$200k seguro al año"</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> "Es la mejor diplomatura del mundo"</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> "Si entendés cripto, esto es fácil" (subestima el contenido técnico)</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> Cualquier número que no esté en una fuente verificable</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> Comparaciones agresivas con cursos privados específicos (Platzi, Buildspace, etc.)</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> "Garantizo trabajo al terminar"</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> "Vamos a tokenizar la economía argentina" (suena delirante)</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> Hablar mal de Bitcoin / cripto / DeFi (algunos asistentes son entusiastas y se van)</li>
+    <li style="padding: 8px 0; color: var(--red);"><span class="pill red">NO</span> Inventar nombres de empresas o casos de éxito que no podés verificar</li>
+  </ul>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="checklist">
+  <h2>Checklist pre-presentación</h2>
+  <p>Imprimí esto o teneló abierto en otra pantalla. <strong>10 minutos antes</strong> de empezar:</p>
+  <ul class="checklist">
+    <li>PDF del deck abierto en pantalla completa, slide 1 visible</li>
+    <li>Esta guía en otra pantalla (celular, tablet o segundo monitor)</li>
+    <li>Vaso de agua o mate al alcance</li>
+    <li>Probar audio + cámara 5 min antes</li>
+    <li>Cerrar Slack, mail, notificaciones (modo "no molestar")</li>
+    <li>Tener abierto el formulario de inscripción para mostrarlo en vivo</li>
+    <li>Tener el link del plan oficial UNLu listo para compartir en chat</li>
+    <li>Tu LinkedIn / GitHub abierto por si alguien quiere ver tu perfil</li>
+    <li>Background ordenado / iluminación correcta</li>
+    <li>Respirar 3 veces profundo antes de arrancar</li>
+  </ul>
+
+  <h3>Después de la charla</h3>
+  <ul class="checklist">
+    <li>Mandar mail de seguimiento a todos los asistentes con el deck en PDF + link de inscripción</li>
+    <li>Anotar las preguntas que no supiste contestar para mejorar la próxima</li>
+    <li>Anotar quién mostró interés concreto para hacer follow-up personalizado</li>
+    <li>Subir grabación de la charla a YouTube/Drive si se grabó</li>
+  </ul>
+</section>
+
+<section style="text-align: center; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%); color: white;">
+  <h2 style="color: white;">¡Suerte con la charla! 🚀</h2>
+  <p style="opacity: 0.95;">Recordá: hablás de un programa que vos mismo armaste. Nadie sabe más que vos sobre esto.</p>
+</section>
+
+</main>
+</div>
+
+</body>
+</html>

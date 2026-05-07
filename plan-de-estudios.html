@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan de estudios · Diplomatura Blockchain UNLu 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="unq-header">
+  <a href="index.html" class="brand" title="Volver al inicio">
+    <img src="assets/unlu_escudo.png" alt="Universidad Nacional de Luján" class="logo">
+    <img src="assets/logo_dcb.png" alt="Departamento de Ciencias Básicas" class="logo dcb">
+    <div class="brand-text">
+      <div class="institution">Universidad Nacional de Luján</div>
+      <div class="department">Diplomatura de Posgrado en Innovación y Desarrollo de Aplicaciones basadas en Blockchain</div>
+    </div>
+  </a>
+  <div class="course-bar">
+    <span class="course">Plan de estudios</span>
+    <span class="year">Cohorte 2026</span>
+    <span class="instructor">4 módulos · 4 meses · sincrónico online</span>
+  </div>
+</header>
+
+<div class="layout">
+
+<nav class="toc-sidebar">
+  <h3>Volver</h3>
+  <a href="index.html">← Inicio</a>
+
+  <h3>Módulos</h3>
+  <a href="#m1">Módulo 1 · Fundamentos</a>
+  <a href="#m2">Módulo 2 · Solidity + Foundry</a>
+  <a href="#m3">Módulo 3 · Estándares y NFTs</a>
+  <a href="#m4">Módulo 4 · Frontend + Seguridad</a>
+
+  <h3>Cierre</h3>
+  <a href="#tp-final">Proyecto integrador</a>
+  <a href="#bibliografia">Bibliografía</a>
+  <a href="#metodologia">Metodología</a>
+
+  <h3>Recursos</h3>
+  <a href="guia-presentacion.html">Guía de presentación</a>
+  <a href="blockchain_diploma_UNLu.pdf" target="_blank">Deck PDF</a>
+</nav>
+
+<main class="content">
+
+<h1>Plan de estudios</h1>
+<p style="color: var(--gray); font-size: 15px; margin: 0 0 32px;">
+  Diplomatura de Posgrado · 4 módulos · 4 meses · cursado sincrónico online (miércoles 19–22hs ARG) con grabaciones disponibles. Defensa de proyecto integrador frente a tribunal.
+</p>
+
+<h2 id="m1">Módulo 1 · Fundamentos teóricos</h2>
+<p>Base conceptual y herramientas para empezar a trabajar con blockchain.</p>
+
+<div class="flow-diagram">
+  <div class="flow-step open">
+    <div class="step-num">CLASE 1</div>
+    <div class="step-name">Introducción a blockchain y criptografía</div>
+    <div class="step-status">🔓 Hash, bloques, consenso</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">¿Qué es una blockchain? Hash criptográfico (SHA-256). Estructura de bloques. Algoritmos de consenso (PoW vs PoS). Bitcoin vs Ethereum.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Setup MetaMask + faucet de Sepolia. Primera transacción on-chain. Exploración de Etherscan.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 2</div>
+    <div class="step-name">Ethereum, EVM y arquitectura L1/L2</div>
+    <div class="step-status">🔓 EVM · gas · escalabilidad</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Ethereum Virtual Machine (EVM). Modelo de cuentas. Gas y fees. Layer 1 vs Layer 2 (Base, Arbitrum, Optimism). Rollups, sidechains, validation proofs.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Comparativa de gas en distintas L2s. Análisis de transacciones reales en Etherscan + L2 explorers.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="m2">Módulo 2 · Solidity y Foundry</h2>
+<p>Desarrollo de smart contracts con el toolchain estándar de la industria.</p>
+
+<div class="flow-diagram">
+  <div class="flow-step open">
+    <div class="step-num">CLASE 3</div>
+    <div class="step-name">Solidity desde cero</div>
+    <div class="step-status">🔓 Tipos · funciones · storage</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Sintaxis Solidity. Tipos de datos. Visibilidad (public/private/internal/external). State variables vs locales. Storage vs memory vs calldata.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Implementar <code>SimpleStorage</code>. Modificar setters/getters. Probar en Remix.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 4</div>
+    <div class="step-name">Foundry — desarrollo y testing</div>
+    <div class="step-status">🔓 forge · anvil · cast</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Setup Foundry. <code>forge build</code>, <code>forge test</code>, <code>forge script</code>. Anvil (blockchain local). Cast (CLI para interactuar con contratos).</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Migrar <code>SimpleStorage</code> a Foundry. Escribir 10 tests. Deploy local con Anvil.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 5</div>
+    <div class="step-name">Patrones de diseño en Solidity</div>
+    <div class="step-status">🔓 Modifiers · events · errors</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Modifiers (onlyOwner, onlyAfter). Events e indexing. Custom errors. Receive y fallback functions. Patrones: Ownable, Pausable, Pull-over-Push.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Sistema de votación con eventos, modifiers y access control básico. Tests de cada flujo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="m3">Módulo 3 · Estándares ERC y NFTs</h2>
+<p>Tokens fungibles y no fungibles. Despliegue en redes públicas.</p>
+
+<div class="flow-diagram">
+  <div class="flow-step open">
+    <div class="step-num">CLASE 6</div>
+    <div class="step-name">OpenZeppelin y ERC-20</div>
+    <div class="step-status">🔓 Tokens fungibles</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Librería OpenZeppelin Contracts. Estándar ERC-20: implementación, hooks, extensiones (Burnable, Pausable, Permit). Casos de uso: stablecoins, governance tokens.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Crear tu propio ERC-20 con OpenZeppelin. Deploy en Sepolia. Verificar en Etherscan.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 7</div>
+    <div class="step-name">ERC-721 y NFTs</div>
+    <div class="step-status">🔓 Tokens no fungibles</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Estándar ERC-721. Metadata on-chain vs off-chain. IPFS para storage descentralizado. Casos: arte digital, coleccionables, certificados, identidad.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Implementar <code>AcademicCredentials</code> — NFT para certificados académicos. Mint, transfer, burn. Tests completos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 8</div>
+    <div class="step-name">Soulbound Tokens y AccessControl</div>
+    <div class="step-status">🔓 SBT · roles · permisos</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Soulbound Tokens (no transferibles). AccessControl de OpenZeppelin: roles granulares (DEFAULT_ADMIN, ISSUER, REVOKER). Casos reales: KYC on-chain, credenciales no transferibles.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Extender <code>AcademicCredentials</code> con AccessControl + soulbound. Multi-issuer. Revocación de credenciales.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="m4">Módulo 4 · Frontend Web3 y Seguridad</h2>
+<p>Conectar smart contracts con interfaz de usuario. Auditoría y vulnerabilidades.</p>
+
+<div class="flow-diagram">
+  <div class="flow-step open">
+    <div class="step-num">CLASE 9</div>
+    <div class="step-name">Frontend Web3 con Next.js</div>
+    <div class="step-status">🔓 wagmi · RainbowKit · ethers</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Setup Next.js 14 + TypeScript. wagmi (hooks Web3 para React). RainbowKit (UI de conexión wallet). ethers.js v6: providers, contracts, signers. Read vs write transactions.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Frontend para interactuar con <code>AcademicCredentials</code>. Conectar wallet, leer credenciales, mintear nuevas.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 10</div>
+    <div class="step-name">Auditoría de seguridad</div>
+    <div class="step-status">🔓 Slither · CEI · ReentrancyGuard</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Top 10 vulnerabilidades Solidity. Reentrancy attacks (caso DAO). Patrón Checks-Effects-Interactions (CEI). ReentrancyGuard. Integer overflow. Front-running. Slither — análisis estático automatizado.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Romper un contrato vulnerable en Anvil. Aplicar CEI. Pasar Slither sobre tu contrato y resolver findings.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 11</div>
+    <div class="step-name">Deploy en L2 (Base Sepolia)</div>
+    <div class="step-status">🔓 Bridges · gas · monitoring</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">Diferencias L1 vs L2 en deploy. Faucets de Base Sepolia. Verification en BaseScan. Bridges (oficiales y de terceros). Costos comparados.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Migrar tu sistema completo a Base Sepolia. Verificación pública. Frontend conectado a la L2.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-step open">
+    <div class="step-num">CLASE 12</div>
+    <div class="step-name">Casos de uso reales y aplicaciones sectoriales</div>
+    <div class="step-status">🔓 DeFi · DAOs · RWA · regtech</div>
+    <div class="step-tasks">
+      <div class="task-card task-class">
+        <div class="task-label">🏫 Contenidos</div>
+        <div class="task-text">DeFi (Uniswap, Aave, MakerDAO). DAOs y governance on-chain. Tokenización de activos reales (RWA). Stablecoins (USDC, wARS de Ripio). Regtech: KYC on-chain, AFIP cripto.</div>
+      </div>
+      <div class="task-card task-home">
+        <div class="task-label">🛠 Práctica</div>
+        <div class="task-text">Análisis de un protocolo DeFi real (lectura de código + auditoría externa). Definición del proyecto integrador.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="tp-final">Proyecto integrador final</h2>
+
+<a href="#tp-final" class="tp-card">
+  <span class="tp-num">DEFENSA FRENTE A TRIBUNAL</span>
+  <h3>Sistema de verificación de credenciales académicas con SBT</h3>
+  <p class="tp-desc">
+    Extender <code>AcademicCredentials</code> con <strong>AccessControl</strong> + <strong>Soulbound</strong> + struct completo de credencial.
+    Frontend con 2 modos obligatorios (verificador público + issuer) y un 3.° opcional (super-admin) por bonus.
+    Deploy en <strong>Base Sepolia (L2)</strong>. Documentación audiovisual de demo end-to-end.
+  </p>
+  <div class="tp-meta">
+    📅 Defensa al cierre de la diplomatura · 👥 Pareja máx 2 alumnos · 🎓 Tribunal de 3 docentes
+  </div>
+</a>
+
+<h3>Variantes alternativas (a discutir con coordinación)</h3>
+<div class="feature-grid">
+  <div class="feature"><h4>DApp de tokenización RWA</h4><p>Inmuebles, activos financieros, productos físicos. ERC-721/3525 + on-chain registry.</p></div>
+  <div class="feature"><h4>Plataforma DeFi simple</h4><p>Yield farming o lending. Liquidity pools, smart contracts auditados, frontend.</p></div>
+  <div class="feature"><h4>DAO con governance</h4><p>Token de governance, propuestas y ejecución automática on-chain.</p></div>
+  <div class="feature"><h4>Sistema de identidad con SBT</h4><p>Credenciales no transferibles + verificación on-chain.</p></div>
+</div>
+
+<h2 id="metodologia">Metodología</h2>
+
+<table>
+  <thead>
+    <tr><th>Aspecto</th><th>Detalle</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Modalidad</strong></td><td>Sincrónico online vía Zoom/Meet · grabaciones disponibles</td></tr>
+    <tr><td><strong>Frecuencia</strong></td><td>1 clase semanal de 3 horas (miércoles 19–22hs ARG)</td></tr>
+    <tr><td><strong>Duración</strong></td><td>4 meses · 12 clases + proyecto integrador</td></tr>
+    <tr><td><strong>Carga horaria</strong></td><td>~6 horas semanales (3 de clase + 3 de práctica autogestionada)</td></tr>
+    <tr><td><strong>Evaluación</strong></td><td>Trabajos prácticos por módulo + proyecto integrador con defensa frente a tribunal</td></tr>
+    <tr><td><strong>Comunicación</strong></td><td>Discord/Slack para consultas asíncronas + clases sincrónicas</td></tr>
+    <tr><td><strong>Material</strong></td><td>Repositorios GitHub con starters por clase + grabaciones + bibliografía</td></tr>
+  </tbody>
+</table>
+
+<h2 id="bibliografia">Bibliografía y recursos</h2>
+
+<h3>Documentación oficial</h3>
+<ul>
+  <li><a href="https://docs.soliditylang.org/" target="_blank" rel="noopener noreferrer">Solidity Documentation</a> — referencia oficial del lenguaje</li>
+  <li><a href="https://book.getfoundry.sh/" target="_blank" rel="noopener noreferrer">Foundry Book</a> — guía completa de Foundry</li>
+  <li><a href="https://docs.openzeppelin.com/contracts/" target="_blank" rel="noopener noreferrer">OpenZeppelin Contracts</a> — librerías estándar de seguridad</li>
+  <li><a href="https://wagmi.sh/" target="_blank" rel="noopener noreferrer">wagmi</a> — React hooks para Ethereum</li>
+  <li><a href="https://www.rainbowkit.com/" target="_blank" rel="noopener noreferrer">RainbowKit</a> — wallet connection UI</li>
+  <li><a href="https://github.com/crytic/slither" target="_blank" rel="noopener noreferrer">Slither</a> — análisis estático de smart contracts</li>
+</ul>
+
+<h3>Lecturas recomendadas</h3>
+<ul>
+  <li><strong>Mastering Ethereum</strong> · Andreas M. Antonopoulos &amp; Gavin Wood (O'Reilly, 2018)</li>
+  <li><strong>Bitcoin: A Peer-to-Peer Electronic Cash System</strong> · Satoshi Nakamoto (whitepaper, 2008)</li>
+  <li><strong>Ethereum Whitepaper</strong> · Vitalik Buterin (2013)</li>
+  <li><strong>Cyfrin Updraft Course</strong> — material complementario gratuito</li>
+</ul>
+
+<h3>Recursos en línea</h3>
+<ul>
+  <li><a href="https://sepolia.etherscan.io" target="_blank" rel="noopener noreferrer">Sepolia Etherscan</a> · explorer de la testnet de Ethereum</li>
+  <li><a href="https://sepolia.basescan.org" target="_blank" rel="noopener noreferrer">Base Sepolia BaseScan</a> · explorer de la testnet de Base</li>
+  <li><a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" target="_blank" rel="noopener noreferrer">Google Cloud Web3 Faucet</a> · faucet de Sepolia recomendada</li>
+  <li><a href="https://www.coinbase.com/faucets/base-ethereum-sepolia-faucet" target="_blank" rel="noopener noreferrer">Coinbase Base Sepolia Faucet</a></li>
+</ul>
+
+</main>
+</div>
+
+<footer class="unq-footer">
+  <div>
+    LICDIA · Departamento de Ciencias Básicas · <strong>Universidad Nacional de Luján</strong>
+    · Diplomatura de Posgrado en Blockchain <strong>2026</strong>
+  </div>
+</footer>
+
+</body>
+</html>
