@@ -139,6 +139,14 @@
         <li><a href="#dapp">DApp</a></li>
       </ul>
     </li>
+    <li><a href="#cuando-blockchain">⚖️ ¿Cuándo usar blockchain?</a>
+      <ul>
+        <li><a href="#cuando-si">Cuándo SÍ tiene sentido</a></li>
+        <li><a href="#cuando-no">Cuándo NO tiene sentido</a></li>
+        <li><a href="#arbol-decision">Árbol de decisión</a></li>
+        <li><a href="#casos-tipicos">Casos típicos analizados</a></li>
+      </ul>
+    </li>
     <li><a href="#bloque-redes">2. Redes blockchain</a>
       <ul>
         <li><a href="#ethereum">Ethereum</a></li>
@@ -223,6 +231,29 @@
         <li><a href="#rather-labs">Rather Labs · Koibanx · Xcapit</a></li>
       </ul>
     </li>
+    <li><a href="#proyectos-tech">🚀 Proyectos posibles + Web2 vs Web3</a>
+      <ul>
+        <li><a href="#tabla-tech">Comparativa de tecnologías</a></li>
+        <li><a href="#proyectos-frontend">Proyectos frontend-heavy</a></li>
+        <li><a href="#proyectos-backend">Proyectos backend / on-chain</a></li>
+        <li><a href="#proyectos-hibridos">Híbridos (lo más común)</a></li>
+        <li><a href="#donde-gana-web3">Dónde Web3 le gana a Web2</a></li>
+        <li><a href="#donde-pierde-web3">Dónde Web2 sigue siendo mejor</a></li>
+      </ul>
+    </li>
+    <li><a href="#perfiles-cohorte">👥 Perfiles + qué se llevan</a>
+      <ul>
+        <li><a href="#perfil-dev">Desarrolladores / IT</a></li>
+        <li><a href="#perfil-legal">Abogados / Contadores</a></li>
+        <li><a href="#perfil-empresario">Empresarios / Emprendedores</a></li>
+        <li><a href="#perfil-estudiante">Estudiantes avanzados</a></li>
+        <li><a href="#perfil-docente">Docentes / Investigadores</a></li>
+        <li><a href="#perfil-finanzas">Finanzas / Economía</a></li>
+        <li><a href="#perfil-data">Data / Ciberseguridad</a></li>
+        <li><a href="#perfil-publico">Funcionarios públicos</a></li>
+        <li><a href="#perfil-sociales">Sociología / humanidades</a></li>
+      </ul>
+    </li>
     <li><a href="#siglas">Cheat sheet de siglas</a></li>
   </ul>
 </aside>
@@ -280,6 +311,283 @@
     <div class="simple">Una aplicación cuyo backend (la lógica) corre en una blockchain en lugar de en un servidor de una empresa. Tiene un frontend tradicional (una web), pero cuando hacés clic en "comprar" o "votar", lo que se ejecuta es un smart contract.</div>
     <div class="tech"><strong>Técnico:</strong> Aplicación descentralizada compuesta por (1) smart contracts en blockchain como backend, (2) frontend web tradicional (HTML/JS/React), (3) interacción vía wallet del usuario. Lo "descentralizado" es que la lógica crítica vive en cadena pública y no en un servidor que una empresa puede apagar.</div>
     <div class="example">Uniswap (intercambio de tokens descentralizado), OpenSea (marketplace de NFTs), Aave (préstamos descentralizados).</div>
+  </dd>
+
+</dl>
+
+<h2 id="cuando-blockchain">⚖️ ¿Cuándo usar blockchain (y cuándo no)?</h2>
+
+<p>
+  La pregunta clave en cualquier proyecto. Blockchain <strong>no es mágica</strong> — tiene costos altos
+  (gas, latencia, complejidad) y no debería usarse para todo. Esta sección te da los criterios para decidir
+  rápido si una solución la necesita.
+</p>
+
+<h3 id="cuando-si">✅ Cuándo SÍ tiene sentido un smart contract</h3>
+
+<p>Un smart contract aporta valor real cuando se cumplen <strong>al menos 2 de estas 3 condiciones</strong>:</p>
+
+<dl class="glossary">
+
+  <dt>1. Hay múltiples partes que no confían entre sí</dt>
+  <dd>
+    <div class="simple">Si los participantes del sistema no se conocen, son competidores, o cada uno depende de que el otro no haga trampa, blockchain elimina la necesidad de un intermediario que valide.</div>
+    <div class="example">Compradores y vendedores de inmuebles que no se conocen. Estudiantes y empleadores que no comparten una base de datos. Bancos que necesitan liquidar entre sí sin un clearing house central.</div>
+  </dd>
+
+  <dt>2. Necesitás auditabilidad pública e inmutabilidad</dt>
+  <dd>
+    <div class="simple">Si tu sistema requiere que cualquiera pueda verificar que algo pasó (y nadie pueda borrarlo después), blockchain te da eso "gratis": cada operación queda registrada para siempre, públicamente, con timestamp.</div>
+    <div class="example">Registros catastrales, votaciones, certificados académicos, auditoría de cadena de suministro, transparencia presupuestaria.</div>
+  </dd>
+
+  <dt>3. La lógica debe ejecutarse sin un dueño que la pueda manipular</dt>
+  <dd>
+    <div class="simple">Si lo importante es que <em>nadie</em> pueda modificar las reglas a posteriori (ni el creador), un smart contract garantiza ejecución determinística según lo escrito.</div>
+    <div class="example">Un protocolo DeFi donde nadie puede cambiar las tasas de interés arbitrariamente. Un contrato de herencia que se ejecuta automáticamente. Un sistema de royalties que paga a artistas sin que la plataforma se quede con la plata.</div>
+  </dd>
+
+</dl>
+
+<h3 id="cuando-no">❌ Cuándo NO tiene sentido (red flags)</h3>
+
+<p>Si tu caso de uso encaja en alguna de estas situaciones, <strong>blockchain probablemente no es la respuesta</strong> y vas a complicarte la vida innecesariamente:</p>
+
+<dl class="glossary">
+
+  <dt>1. Una sola entidad controla todo</dt>
+  <dd>
+    <div class="simple">Si vos sos el único actor (tu empresa controla los datos, los usuarios y la lógica), una base de datos PostgreSQL te resuelve igual y es 100x más barata.</div>
+    <div class="example">"Quiero un sistema interno de tickets para mi empresa". <strong>No necesitás blockchain</strong> — usá Jira o un Postgres con auditoría.</div>
+  </dd>
+
+  <dt>2. Los datos cambian con frecuencia y son grandes</dt>
+  <dd>
+    <div class="simple">Blockchain es muy cara para almacenamiento. Cada KB de storage on-chain cuesta dólares. Si tu sistema escribe MB cada hora, te fundís.</div>
+    <div class="example">Almacenar fotos de productos, logs de sensores IoT, video streaming, documentos PDF completos. Solución correcta: guardar el archivo en IPFS o S3 y solo el hash en blockchain.</div>
+  </dd>
+
+  <dt>3. Necesitás privacidad de los datos</dt>
+  <dd>
+    <div class="simple">Por defecto, todo lo que escribís en una blockchain pública es <strong>público</strong>. Tu dirección, tus transacciones, los argumentos de cada función — todo lo ven todos.</div>
+    <div class="example">Datos médicos privados, salarios de empleados, secretos comerciales. Soluciones avanzadas existen (ZKPs, blockchains privadas) pero suman mucha complejidad.</div>
+  </dd>
+
+  <dt>4. Necesitás latencia baja y throughput alto</dt>
+  <dd>
+    <div class="simple">Una transacción en Ethereum mainnet tarda 12 segundos en confirmarse y la red procesa ~15 transacciones por segundo. Visa procesa 24.000/seg. Si necesitás respuesta inmediata o volumen masivo, no es la herramienta.</div>
+    <div class="example">Sistema de matching de Mercado Libre, motor de juegos online en tiempo real, trading de alta frecuencia. Las L2 mejoran (Base ~1000 tps), pero seguís lejos de Visa.</div>
+  </dd>
+
+  <dt>5. La fuente de verdad es off-chain de todas formas</dt>
+  <dd>
+    <div class="simple">Si lo importante vive fuera de la cadena (ej: un departamento físico), poner el "título de propiedad" en blockchain no resuelve nada — alguien igual tiene que verificar que el departamento existe y nadie lo invadió.</div>
+    <div class="example">Si tokenizás un Ferrari, el problema no es el token — es quién garantiza que el Ferrari sigue existiendo y nadie lo robó. Necesitás un oráculo legal/físico que la blockchain por sí sola no provee.</div>
+  </dd>
+
+</dl>
+
+<h3 id="arbol-decision">🌳 Árbol de decisión rápido</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%;">Pregunta</th>
+      <th>Si la respuesta es...</th>
+      <th>Entonces...</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>¿Hay múltiples partes que no confían entre sí?</td>
+      <td>NO</td>
+      <td>❌ Usá una base de datos común</td>
+    </tr>
+    <tr>
+      <td>¿Una sola autoridad puede actuar como árbitro?</td>
+      <td>SÍ y todos lo aceptan</td>
+      <td>❌ Usá esa autoridad — más simple</td>
+    </tr>
+    <tr>
+      <td>¿Necesitás que cualquiera pueda auditar el historial?</td>
+      <td>SÍ</td>
+      <td>✅ Blockchain pública</td>
+    </tr>
+    <tr>
+      <td>¿Los datos cambian rápido y son grandes (MBs)?</td>
+      <td>SÍ</td>
+      <td>❌ DB tradicional + IPFS para archivos</td>
+    </tr>
+    <tr>
+      <td>¿Los datos son sensibles / privados?</td>
+      <td>SÍ y no podés exponerlos</td>
+      <td>⚠️ Necesitás ZKPs o blockchain privada</td>
+    </tr>
+    <tr>
+      <td>¿Necesitás &lt;1 segundo de latencia?</td>
+      <td>SÍ siempre</td>
+      <td>❌ DB tradicional</td>
+    </tr>
+    <tr>
+      <td>¿Necesitás reglas que nadie pueda cambiar a posteriori?</td>
+      <td>SÍ</td>
+      <td>✅ Smart contract</td>
+    </tr>
+    <tr>
+      <td>¿Hay valor económico que mover entre partes?</td>
+      <td>SÍ y no querés intermediarios</td>
+      <td>✅ Smart contract con tokens</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="casos-tipicos">📋 Casos típicos analizados</h3>
+
+<dl class="glossary">
+
+  <dt>✅ Sistema de credenciales académicas (TP final de la diplomatura)</dt>
+  <dd>
+    <div class="simple"><strong>Tiene sentido</strong>: múltiples partes que no confían (universidad emisora, empleador verificador, alumno), necesitás auditabilidad pública (cualquier empleador del mundo verifica el título), inmutabilidad (no se puede falsificar).</div>
+    <div class="tech"><strong>Solución:</strong> SBT (Soulbound Token) en Base Sepolia. La universidad firma como issuer, el alumno tiene el token en su wallet, el empleador verifica con un read on-chain. PostgreSQL no podría replicar esto sin que la universidad sea el cuello de botella.</div>
+  </dd>
+
+  <dt>❌ "Quiero registrar empleados de mi empresa en blockchain"</dt>
+  <dd>
+    <div class="simple"><strong>No tiene sentido:</strong> tu empresa es una sola entidad, los datos son privados (sueldos, datos personales), cambian seguido (altas/bajas), la fuente de verdad es tu sistema de RRHH.</div>
+    <div class="tech"><strong>Solución correcta:</strong> Postgres + auditoría de cambios + backup. Si querés "transparencia" para los empleados sobre sus propios datos, una API con autenticación es suficiente.</div>
+  </dd>
+
+  <dt>✅ Tokenización de inmuebles (RWA)</dt>
+  <dd>
+    <div class="simple"><strong>Tiene sentido</strong> (con caveats): permite fraccionar propiedades, mercado secundario 24/7, pago automático de dividendos a tokenholders. Hay múltiples partes que no confían (propietarios, inversores, plataforma).</div>
+    <div class="tech"><strong>Caveat:</strong> blockchain resuelve el registro de propiedad de los tokens, pero alguien fuera de la cadena (escribano, registro público, fiduciario) tiene que garantizar la relación token ↔ inmueble físico. Sin marco legal, el token no vale nada legalmente.</div>
+  </dd>
+
+  <dt>❌ "App de delivery con blockchain para transparencia"</dt>
+  <dd>
+    <div class="simple"><strong>No tiene sentido:</strong> los pedidos son privados, el volumen es altísimo, la latencia tiene que ser baja, hay una sola plataforma que organiza todo, el costo de gas mataría las ganancias.</div>
+    <div class="tech"><strong>Bullshit detection:</strong> esto es un caso clásico de "blockchain washing" — agregar la palabra blockchain para sonar innovador. El delivery funciona perfecto con sistemas tradicionales.</div>
+  </dd>
+
+  <dt>✅ Stablecoin del peso argentino (wARS de Ripio)</dt>
+  <dd>
+    <div class="simple"><strong>Tiene sentido</strong>: permite usar pesos argentinos en DeFi, cualquiera verifica las reservas on-chain, auditoría pública del backing, los usuarios mueven el token sin intermediarios.</div>
+    <div class="tech"><strong>Implementación:</strong> ERC-20 en Ethereum + L2s. Reserva 1:1 en pesos custodiada por Ripio. Smart contract permite mint/burn según reserva. Aave-compatible, así que los argentinos pueden hacer lending/borrowing en pesos.</div>
+  </dd>
+
+  <dt>❌ "Trazabilidad de productos agrícolas con blockchain"</dt>
+  <dd>
+    <div class="simple"><strong>Depende:</strong> si todos los actores están de acuerdo en compartir una sola base de datos, no necesitás blockchain. Si hay competidores que no quieren depender uno del otro, sí tiene sentido.</div>
+    <div class="tech"><strong>Pregunta clave:</strong> ¿quién va a operar el nodo? Si la respuesta es "Carrefour solamente", no es blockchain — es la base de datos de Carrefour. Si participan productores, transportistas, gobiernos de varios países, entonces sí es un caso de uso real.</div>
+  </dd>
+
+  <dt>✅ DAO de governance de un protocolo DeFi</dt>
+  <dd>
+    <div class="simple"><strong>Tiene sentido</strong>: holders de token UNI son anónimos, distribuidos globalmente, votan propuestas que ejecutan smart contracts automáticamente, sin ningún intermediario humano.</div>
+    <div class="tech"><strong>Implementación:</strong> ERC-20 votes + OpenZeppelin Governor + Timelock. Propuestas se ejecutan automáticamente si pasan el quorum. Snapshot del balance se toma al momento de la propuesta para evitar comprar votos.</div>
+  </dd>
+
+  <dt>❌ "Historia clínica del paciente en blockchain pública"</dt>
+  <dd>
+    <div class="simple"><strong>No tiene sentido:</strong> los datos son ultra sensibles, las leyes de protección de datos (HIPAA, GDPR, ley 26.529 en AR) prohíben datos médicos públicos.</div>
+    <div class="tech"><strong>Solución correcta:</strong> identidad descentralizada (DID) + credenciales verificables off-chain + ZKPs si necesitás probar algo sin revelar (ej: probar que tenés cobertura sin mostrar la enfermedad). El dato médico nunca toca una blockchain pública.</div>
+  </dd>
+
+</dl>
+
+<blockquote>
+  <strong>Regla heurística:</strong> si tu sistema funciona perfecto con un Postgres y una autoridad central, no le metas blockchain.
+  Si necesitás eliminar a esa autoridad central — entonces sí.
+</blockquote>
+
+<h3>🖥️ ¿Siempre necesito un frontend para usar mi smart contract?</h3>
+
+<p><strong>No.</strong> Hay 4 formas de interactuar con un smart contract, y solo una requiere frontend:</p>
+
+<dl class="glossary">
+
+  <dt>1. Frontend Web3 (Next.js + wagmi + RainbowKit) — el caso más común</dt>
+  <dd>
+    <div class="simple">El usuario abre tu DApp en el navegador, conecta MetaMask, y hace clic en botones que disparan transacciones. Es lo que ve el usuario final típico.</div>
+    <div class="example">Uniswap, OpenSea, Aave — todos tienen frontends que abstraen el contrato. <strong>El TP final de la diplomatura usa este enfoque.</strong></div>
+  </dd>
+
+  <dt>2. Etherscan / BaseScan — gratis y sin código</dt>
+  <dd>
+    <div class="simple">Si verificás tu contrato en Etherscan, te genera un formulario web automático con todas las funciones. Conectás MetaMask y podés llamar cualquier función sin tener un frontend propio.</div>
+    <div class="tech"><strong>Cómo:</strong> después de deploy, vas a la página de tu contrato en Etherscan → "Contract" → "Verify and Publish" (subís el .sol). Una vez verificado, aparece "Read Contract" y "Write Contract" con todas las funciones públicas.</div>
+    <div class="example">Para un contrato interno de empresa o un proyecto open source, Etherscan es suficiente y profesional. No hace falta gastar plata en un frontend.</div>
+  </dd>
+
+  <dt>3. CLI directamente con cast (Foundry)</dt>
+  <dd>
+    <div class="simple">Desde la terminal de tu compu, llamás cualquier función con un comando. Útil para devs, automatización y scripting.</div>
+    <div class="tech"><strong>Lectura:</strong> <code>cast call 0xCONTRATO "balanceOf(address)" 0xUSER --rpc-url $RPC</code>.<br>
+    <strong>Escritura:</strong> <code>cast send 0xCONTRATO "transfer(address,uint256)" 0xUSER 1000 --private-key $PK --rpc-url $RPC</code>.</div>
+    <div class="example">En la clase 3 vas a usar cast contra Sepolia para entender exactamente qué pasa cuando una DApp manda una tx. Te da intuición que el frontend te oculta.</div>
+  </dd>
+
+  <dt>4. Otro smart contract (composability)</dt>
+  <dd>
+    <div class="simple">Los smart contracts pueden llamarse entre sí. Un contrato no necesita un humano ni un frontend — otro contrato puede invocarlo automáticamente.</div>
+    <div class="tech"><strong>Esto es lo que se llama "money legos":</strong> Aave llama a Uniswap, Curve llama a Aave, etc. Toda la composabilidad de DeFi funciona así.</div>
+    <div class="example">Un contrato de "auto-compound" que cada día llama a Aave (cobra intereses), después llama a Uniswap (intercambia), después vuelve a depositar. El usuario hizo 1 tx el primer día y el contrato funciona solo para siempre.</div>
+  </dd>
+
+</dl>
+
+<blockquote>
+  <strong>En resumen:</strong> el frontend es <em>UX</em> para humanos. El contrato funciona igual con o sin frontend. Si tu caso de uso es B2B o interno, podés vivir sin frontend usando Etherscan o cast.
+</blockquote>
+
+<h3>🧪 ¿Por qué se usan Sepolia y Base Sepolia? ¿Qué es una "testnet"?</h3>
+
+<p>
+  Una <strong>testnet</strong> es una blockchain de prueba que funciona igual que la real ("mainnet"),
+  pero donde la moneda <strong>no vale nada</strong>. Sirve para probar contratos sin gastar plata real.
+  Si tu contrato funciona en testnet, después es 1 comando moverlo a mainnet.
+</p>
+
+<dl class="glossary">
+
+  <dt>¿Por qué necesito una testnet?</dt>
+  <dd>
+    <div class="simple">Porque desplegar en mainnet cuesta plata real (ETH real). Si tenés un bug, se pierde. Si tu contrato es vulnerable, te lo hackean. La testnet te deja iterar gratis hasta que estés seguro.</div>
+    <div class="example">Un deploy típico de un ERC-721 en Ethereum mainnet cuesta ~US$50 en gas. Si te equivocás, son US$50 perdidos por intento. En Sepolia: US$0.</div>
+  </dd>
+
+  <dt>Sepolia (testnet de Ethereum)</dt>
+  <dd>
+    <div class="simple">La testnet oficial de Ethereum L1. Misma EVM, mismo Solidity, misma experiencia que mainnet — pero el ETH es gratis.</div>
+    <div class="tech"><strong>Datos:</strong> red oficial mantenida por la Ethereum Foundation. Reemplazó a Goerli en 2024 (deprecada por costos altos). El ETH se obtiene de "faucets" gratuitos: Google Cloud Web3 Faucet, Alchemy, Infura, QuickNode. Tu wallet (MetaMask) tiene Sepolia preconfigurada.</div>
+    <div class="example">En la clase 7 deployás tu primer NFT en Sepolia. El contrato es idéntico al que usarías en mainnet, solo cambia el RPC URL.</div>
+  </dd>
+
+  <dt>Base Sepolia (testnet de Base, una L2)</dt>
+  <dd>
+    <div class="simple">La testnet de Base, la L2 de Coinbase. <strong>Por qué se usan las dos:</strong> Sepolia te muestra la experiencia L1 (más cara, más lenta), Base Sepolia te muestra la experiencia L2 (más barata, más rápida). En la diplomatura desplegamos en ambas para que veas la diferencia.</div>
+    <div class="tech"><strong>Datos:</strong> network ID 84532. Faucet recomendado: Coinbase Base Sepolia faucet (1 ETH gratis al día). Explorer: <code>sepolia.basescan.org</code>. El TP final se despliega acá porque es la realidad económica que va a usar el alumno (las L2 son la corriente principal hoy).</div>
+    <div class="example">Mismo contrato Solidity, mismo Foundry. Lo único que cambia: la URL del RPC y la chain ID en MetaMask. El contrato corre exactamente igual porque Base es EVM-compatible.</div>
+  </dd>
+
+  <dt>¿Por qué dos y no una?</dt>
+  <dd>
+    <div class="simple">Para que entiendas que <strong>el ecosistema es multi-chain</strong>. La idea no es atarte a una red, sino ver que el mismo código corre en muchas. Sepolia te da Ethereum puro; Base Sepolia te da una L2 moderna. Tu skill no depende de una sola red.</div>
+    <div class="tech"><strong>Ventaja didáctica:</strong> en el TP final el alumno ya migró su contrato entre redes — eso le da intuición de cómo funciona el ecosistema multichain real, donde un protocolo se despliega en mainnet + Base + Arbitrum + Optimism + Polygon.</div>
+  </dd>
+
+  <dt>¿Y la mainnet? ¿La usamos en la diplomatura?</dt>
+  <dd>
+    <div class="simple"><strong>Por defecto no</strong>, porque cuesta plata real. Si un alumno quiere desplegar su TP final en Base mainnet (que es muy barato, ~US$1 de gas), lo coordinamos con la cátedra. Pero el aprendizaje completo se hace en testnets.</div>
+    <div class="tech"><strong>Costos comparativos para deployar el contrato del TP final:</strong>
+      <ul>
+        <li>Sepolia / Base Sepolia: US$0 (gratis)</li>
+        <li>Base mainnet: ~US$0.50–2</li>
+        <li>Polygon: ~US$0.10–0.50</li>
+        <li>Ethereum mainnet: US$30–100 (según congestión)</li>
+      </ul>
+    </div>
+    <div class="example">Si querés que tu certificado UNLu sea verificable on-chain real, podés deployarlo en Base mainnet por ~US$1. Eso es algo que muchos egresados hacen como portfolio piece.</div>
   </dd>
 
 </dl>
@@ -681,6 +989,455 @@
   </dd>
 
 </dl>
+
+<h2 id="proyectos-tech">🚀 Proyectos posibles, tecnologías y comparación con Web2</h2>
+
+<p>
+  Sección práctica para responder preguntas tipo <em>"¿qué se podría construir en la diplomatura?"</em> y
+  <em>"¿en qué se diferencia esto de hacer una web normal con React y Postgres?"</em>.
+</p>
+
+<h3 id="tabla-tech">Comparativa rápida de tecnologías Web2 vs Web3</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Capa</th>
+      <th>Web2 tradicional</th>
+      <th>Web3</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Lenguaje backend</strong></td>
+      <td>Python, Node.js, Java, Go</td>
+      <td>Solidity (EVM) · Rust (Solana)</td>
+      <td>El backend es el smart contract. Más restrictivo: cada operación cuesta gas.</td>
+    </tr>
+    <tr>
+      <td><strong>Base de datos</strong></td>
+      <td>Postgres, MongoDB, MySQL</td>
+      <td>Storage on-chain (caro) + IPFS para archivos</td>
+      <td>On-chain solo guardás lo crítico (~ centavos por KB en L2).</td>
+    </tr>
+    <tr>
+      <td><strong>Autenticación</strong></td>
+      <td>Email + password · OAuth (Google, GitHub)</td>
+      <td>Wallet (MetaMask) firma un mensaje</td>
+      <td>Web3 te da identidad criptográfica nativa, sin password ni 2FA.</td>
+    </tr>
+    <tr>
+      <td><strong>Frontend</strong></td>
+      <td>React / Vue / Angular + REST API</td>
+      <td>React / Next.js + wagmi + viem</td>
+      <td>Frontend es muy parecido. La diferencia: en lugar de <code>fetch('/api')</code> hacés <code>useReadContract()</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Hosting</strong></td>
+      <td>AWS, Vercel, GCP</td>
+      <td>Vercel/Netlify (frontend) + L2 (contratos) + IPFS (archivos)</td>
+      <td>El frontend sigue en hosting tradicional. Solo el "backend" vive on-chain.</td>
+    </tr>
+    <tr>
+      <td><strong>Pagos</strong></td>
+      <td>Stripe, MercadoPago, PayPal</td>
+      <td>Transferencia ERC-20 directa (USDC, wARS)</td>
+      <td>Web3 elimina al procesador de pagos. Comisión: ~0% (solo gas).</td>
+    </tr>
+    <tr>
+      <td><strong>Servidor de lógica</strong></td>
+      <td>Servidor que tu empresa controla</td>
+      <td>Smart contract que <em>nadie</em> controla post-deploy</td>
+      <td>Inmutabilidad como feature. No podés "patchear" el bug en producción.</td>
+    </tr>
+    <tr>
+      <td><strong>Latencia</strong></td>
+      <td>~50–200 ms</td>
+      <td>~12 seg L1 / ~2 seg L2</td>
+      <td>Web3 es lenta. No sirve para UX que requiera respuesta instantánea.</td>
+    </tr>
+    <tr>
+      <td><strong>Throughput</strong></td>
+      <td>Visa: 24.000 TPS</td>
+      <td>Ethereum: 15 TPS · Base: ~1000 TPS · Solana: ~3000 TPS</td>
+      <td>El cuello de botella es claro. Por eso L2s y rollups.</td>
+    </tr>
+    <tr>
+      <td><strong>Costo por operación</strong></td>
+      <td>Ínfimo (centavos)</td>
+      <td>Ethereum: US$1–10 · Base: US$0.01 · Polygon: US$0.001</td>
+      <td>L2s casi igualan Web2 en costo.</td>
+    </tr>
+    <tr>
+      <td><strong>Auditoría / logs</strong></td>
+      <td>Logs internos (los podés borrar)</td>
+      <td>Todo on-chain es público y permanente</td>
+      <td>Ventaja real de Web3: nadie puede borrar la historia.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="proyectos-frontend">Proyectos donde el frontend es lo principal (Web2 puede competir)</h3>
+
+<dl class="glossary">
+
+  <dt>Marketplace de servicios profesionales</dt>
+  <dd>
+    <div class="simple"><strong>Web2 (Workana, Fiverr) gana en UX</strong> pero pierde en comisiones (15–20%) y disputas. <strong>Versión Web3</strong>: contratos de escrow que liberan plata cuando ambas partes confirman, comisión 0%, identidad portable entre plataformas.</div>
+    <div class="example"><strong>Stack Web3:</strong> Next.js + RainbowKit + smart contract de escrow + USDC para pagos + IPFS para evidencia de entrega. Tiene sentido si la fricción de "tener wallet" se compensa con la baja en comisiones.</div>
+  </dd>
+
+  <dt>Sistema de credenciales académicas (TP final)</dt>
+  <dd>
+    <div class="simple"><strong>Web2:</strong> el alumno recibe un PDF firmado, el empleador llama a la universidad para verificar. Lento, manual, dependés de que la universidad responda.<br>
+    <strong>Web3:</strong> el alumno recibe un SBT en su wallet, el empleador verifica con un read on-chain en 1 segundo. Sin intermediarios.</div>
+    <div class="example"><strong>Stack Web3:</strong> Next.js + wagmi + ERC-721 Soulbound + AccessControl + Base Sepolia. Frontend con 2 modos (verificador / issuer).</div>
+  </dd>
+
+  <dt>Marketplace de NFTs / arte digital</dt>
+  <dd>
+    <div class="simple"><strong>Web2 (DeviantArt, Society6):</strong> el artista vende, la plataforma se queda con 50%, no hay royalties en reventas.<br>
+    <strong>Web3 (OpenSea, Foundation):</strong> el artista cobra royalties automáticos cada vez que su obra se revende, en cualquier marketplace, para siempre.</div>
+    <div class="example"><strong>Stack:</strong> Next.js + ERC-721 con royalties (EIP-2981) + IPFS + The Graph para indexar.</div>
+  </dd>
+
+</dl>
+
+<h3 id="proyectos-backend">Proyectos donde el smart contract es lo principal (Web3 brilla)</h3>
+
+<dl class="glossary">
+
+  <dt>Plataforma de lending / préstamos descentralizados</dt>
+  <dd>
+    <div class="simple">El usuario deposita USDC y gana interés. Otros toman prestado dejando ETH como garantía. Todo automatizado por un contrato — sin banco, sin scoring, sin papeles. <strong>Web2 no tiene comparación equivalente</strong> sin un banco detrás.</div>
+    <div class="example"><strong>Stack:</strong> Solidity + Foundry + OpenZeppelin (para ERC-20 tokens) + Chainlink price feeds + frontend con Next.js. Ejemplo real: Aave, Compound, Morpho.</div>
+  </dd>
+
+  <dt>DAO con governance on-chain</dt>
+  <dd>
+    <div class="simple">Una organización donde 1.000 personas votan propuestas y la ejecución es automática. Web2 equivalente: una empresa con board y minutas. Web3 elimina el board.</div>
+    <div class="example"><strong>Stack:</strong> ERC-20Votes + OpenZeppelin Governor + Timelock + Snapshot (off-chain voting opcional para ahorrar gas) + frontend con Tally.xyz embebido.</div>
+  </dd>
+
+  <dt>Stablecoin local (caso wARS de Ripio)</dt>
+  <dd>
+    <div class="simple">Tokenizás el peso argentino: por cada wARS hay 1 peso real custodiado. La gente puede mover pesos al instante, usarlos en DeFi, integrarlos con cualquier wallet del mundo. <strong>Web2 no puede hacer esto sin un banco.</strong></div>
+    <div class="example"><strong>Stack:</strong> ERC-20 con mint/burn controlado por el issuer + reserva auditada + integraciones con Aave para que la gente lendee pesos.</div>
+  </dd>
+
+  <dt>Sistema de votación pública auditable</dt>
+  <dd>
+    <div class="simple">Una elección donde cualquier ciudadano puede verificar el resultado sin confiar en una autoridad. Web2: dependés de que el INDEC publique el resultado correcto. Web3: vos verificás cada voto.</div>
+    <div class="example"><strong>Stack:</strong> Solidity + ZKPs (para mantener privacidad del voto) + frontend con identidad descentralizada. Casos: Vocdoni, Aragon Voice.</div>
+  </dd>
+
+  <dt>Tokenización de RWA (real estate, commodities)</dt>
+  <dd>
+    <div class="simple">Fraccionar un departamento en 1000 tokens y venderlos al público. Web2: imposible legalmente sin un fondo común de inversión (FCI) y comisiones del 5%. Web3: implementación directa con marco legal.</div>
+    <div class="example"><strong>Stack:</strong> ERC-3525 (semi-fungible) o ERC-20 con transfer restrictions + KYC on-chain + integración con un fiduciario legal. Ejemplo AR: Agrotoken (commodities agrícolas).</div>
+  </dd>
+
+</dl>
+
+<h3 id="proyectos-hibridos">Proyectos híbridos (Web2 + Web3) — lo más común en la realidad</h3>
+
+<dl class="glossary">
+
+  <dt>Sistema de fidelidad de retail con tokens</dt>
+  <dd>
+    <div class="simple">Un Coto / Carrefour da puntos como token ERC-20. El backoffice (logística, stock, facturación) sigue siendo Web2 tradicional, pero los puntos viven en blockchain — el cliente los puede mover entre comercios, intercambiar con otros, usarlos en DeFi.</div>
+    <div class="example"><strong>Stack:</strong> Sistema ERP normal (SAP, Oracle) + Smart contract ERC-20 para los puntos + integración por API. Volkswagen ya hizo esto en Brasil con Polygon.</div>
+  </dd>
+
+  <dt>Plataforma de fundraising con tokens</dt>
+  <dd>
+    <div class="simple">Una ONG recauda en stablecoins, los donantes reciben un SBT como reconocimiento, el destino de los fondos es trazable on-chain. Backend tradicional para gestión, blockchain para transparencia.</div>
+    <div class="example"><strong>Stack:</strong> Frontend Next.js con Stripe + RainbowKit (paga con tarjeta o cripto) + smart contract de tracking + dashboard público.</div>
+  </dd>
+
+  <dt>SaaS con suscripción cripto</dt>
+  <dd>
+    <div class="simple">Cualquier SaaS B2B (Notion, Slack, etc) puede aceptar pagos en USDC sin pasar por Stripe. Backend Web2 tradicional, frontend con opción de "pagar con wallet" además de tarjeta.</div>
+    <div class="example"><strong>Stack:</strong> Web normal + Stripe + integración con un servicio como Coinbase Commerce o smart contract de subscripción tipo Sablier.</div>
+  </dd>
+
+  <dt>Trazabilidad de cadena de suministro (Walmart, Carrefour)</dt>
+  <dd>
+    <div class="simple">El sistema de gestión interno es Web2. Pero los hashes de cada movimiento (productor → transporte → distribuidor → góndola) se firman en blockchain. Si hay un retiro de producto por contaminación, en segundos sabés dónde está.</div>
+    <div class="example"><strong>Stack:</strong> ERP existente + smart contract que recibe hashes + dashboard público para consumidores. Walmart hizo este caso para vegetales en China — redujo el rastreo de 7 días a 2 segundos.</div>
+  </dd>
+
+</dl>
+
+<h3 id="donde-gana-web3">🏆 Dónde Web3 le gana claramente a Web2</h3>
+
+<table>
+  <thead>
+    <tr><th>Ventaja</th><th>Por qué</th><th>Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Auditabilidad pública</td>
+      <td>Todos los datos on-chain son visibles e inmutables. Nadie puede borrar ni modificar el historial.</td>
+      <td>Stablecoins (USDC publica reservas), votaciones, cadena de suministro.</td>
+    </tr>
+    <tr>
+      <td>Eliminar intermediarios</td>
+      <td>Smart contracts ejecutan reglas sin necesidad de un escribano, banco o plataforma.</td>
+      <td>Uniswap reemplazó al broker. Aave reemplazó al banco para préstamos.</td>
+    </tr>
+    <tr>
+      <td>Pagos globales 24/7</td>
+      <td>USDC funciona igual de domingo a las 3am que un martes a las 10am. Sin SWIFT, sin cierre.</td>
+      <td>Empleados de empresas USA cobrando en LATAM en USDC al instante.</td>
+    </tr>
+    <tr>
+      <td>Composabilidad ("money legos")</td>
+      <td>Cualquier contrato puede integrarse con cualquier otro sin pedir permiso.</td>
+      <td>Yearn invierte en Aave que toma fondos de Curve que tiene tokens de Compound. Todo automatizado.</td>
+    </tr>
+    <tr>
+      <td>Identidad portable</td>
+      <td>Tu wallet es tu identidad. La misma identity sirve en 1000 DApps sin crear cuentas.</td>
+      <td>"Sign in with Ethereum" — un solo login para todo Web3.</td>
+    </tr>
+    <tr>
+      <td>Pagos micro-transaccionales</td>
+      <td>En L2 y stablecoins, podés pagar US$0.01 o US$0.50 sin que la comisión te coma todo.</td>
+      <td>Pago por minuto consumido en una API, propinas a creadores de contenido.</td>
+    </tr>
+    <tr>
+      <td>Resistencia a la censura</td>
+      <td>Una vez desplegado, ni el creador puede apagar el contrato. Útil donde hay riesgo político o comercial.</td>
+      <td>Wikipedia descentralizada, redes sociales no censurables (Lens, Farcaster).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="donde-pierde-web3">⚠️ Dónde Web2 sigue siendo claramente mejor</h3>
+
+<table>
+  <thead>
+    <tr><th>Limitación de Web3</th><th>Por qué Web2 gana</th><th>Cuándo aceptar la limitación</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Latencia</td>
+      <td>50ms vs 12 segundos.</td>
+      <td>Si tu UX requiere respuesta instantánea (chat, gaming en tiempo real), Web3 no sirve.</td>
+    </tr>
+    <tr>
+      <td>Privacidad por defecto</td>
+      <td>Web2 mantiene los datos privados. Web3 los expone públicamente.</td>
+      <td>Datos médicos, salarios, secretos comerciales → no pongas eso en blockchain pública.</td>
+    </tr>
+    <tr>
+      <td>UX para usuarios no técnicos</td>
+      <td>Crear cuenta con email vs instalar wallet, anotar 12 palabras, fundear con ETH.</td>
+      <td>Wallets sociales (Privy, Web3Auth) ayudan, pero todavía no es Mercado Libre.</td>
+    </tr>
+    <tr>
+      <td>Almacenamiento masivo</td>
+      <td>S3 es millones de veces más barato que on-chain.</td>
+      <td>Imágenes, videos, documentos → IPFS o S3, no on-chain.</td>
+    </tr>
+    <tr>
+      <td>Cambios post-deploy</td>
+      <td>Si tenés un bug en Web2, deployás un fix en 5 min. En Web3 puede ser imposible.</td>
+      <td>Si necesitás iterar rápido, Web2. Patrones upgradeable existen pero suman complejidad.</td>
+    </tr>
+    <tr>
+      <td>Volumen masivo de transacciones</td>
+      <td>Visa: 24.000 TPS sin sudar.</td>
+      <td>Si necesitás procesar millones de operaciones por segundo, Web3 todavía no llega.</td>
+    </tr>
+    <tr>
+      <td>Compliance regulatorio off-chain</td>
+      <td>Web2 tiene 50 años de marcos regulatorios estables.</td>
+      <td>Sectores muy regulados (salud, banca tradicional) requieren más cuidado.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <strong>Conclusión práctica:</strong> el 80% de los proyectos reales son <em>híbridos</em>.
+  Web2 para UX, performance y datos privados. Web3 para auditabilidad, pagos sin intermediarios y reglas inmutables.
+  La habilidad clave es <strong>saber qué va dónde</strong> — y esa intuición es exactamente lo que da la diplomatura.
+</blockquote>
+
+<h2 id="perfiles-cohorte">👥 Perfiles de la cohorte 2026 — qué se lleva cada uno</h2>
+
+<p>
+  Basado en la <strong>composición real de inscriptos a la cohorte 2026</strong> (38 postulantes analizados).
+  Para cada perfil: cuántos hay, qué les sirve, qué les puede frenar, qué tipo de proyecto integrador les conviene.
+</p>
+
+<p style="background: var(--light-blue); padding: 12px 18px; border-left: 4px solid var(--mid-blue); border-radius: 0 6px 6px 0;">
+  <strong>📊 Distribución observada:</strong> Desarrollador IT (24%) · Abogado/Contador/Admin (22%) ·
+  Estudiante avanzado (14%) · Empresario/Emprendedor (14%) · Docente/Investigador (11%) ·
+  Finanzas/Economía (8%) · Data/Ciberseguridad (5%) · Funcionario público (3%) · Sociología/otros (3%).
+</p>
+
+<dl class="glossary">
+
+  <dt id="perfil-dev">Desarrollador / Ingeniero IT — 24% de la cohorte</dt>
+  <dd>
+    <div class="simple">El perfil más grande. Vienen con base sólida en programación pero rara vez tocaron Solidity ni un toolchain Web3 antes. Lo que les cambia la cabeza: la <strong>inmutabilidad</strong> y el <strong>costo por operación</strong> — escribir código sabiendo que cada storage cuesta plata es una disciplina nueva.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Solidity fluido + patrones (Ownable, AccessControl, Pausable, Upgradeable)</li>
+        <li>Foundry como toolchain profesional (forge, anvil, cast)</li>
+        <li>Frontend Web3 con wagmi (sumás una skill diferenciadora a tu stack React)</li>
+        <li>Auditoría con Slither + patrón CEI</li>
+        <li>Deploy real en testnets + L2 mainnet</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida laboral típica:</strong> Smart Contract Developer (US$80–250k/año), Blockchain Engineer en Lemon/Ripio/Rather Labs, freelance auditor junior. <strong>TP recomendado:</strong> sistema de credenciales SBT con frontend completo — muestra full stack Web3.</div>
+  </dd>
+
+  <dt id="perfil-legal">Abogado / Contador / Administrador — 22% de la cohorte</dt>
+  <dd>
+    <div class="simple">El segundo perfil más grande, y uno de los más estratégicos del mercado. La industria cripto argentina (Lemon, Ripio, Bitso) <strong>desespera</strong> por perfiles que entiendan el código + el marco regulatorio. Régimen PSAV, AFIP cripto, MiCA, KYC on-chain — todo eso necesita gente que lea Solidity y leyes a la vez.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Capacidad de leer un smart contract y traducirlo a riesgos legales</li>
+        <li>Marco regulatorio cripto AR (PSAV) + comparados (MiCA, EU)</li>
+        <li>KYC on-chain con DIDs y VCs</li>
+        <li>Auditoría legal de contratos DeFi</li>
+        <li>Tokenización con marcos legales (security tokens, ERC-3643)</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida laboral típica:</strong> Compliance officer en Lemon/Ripio (US$60–150k/año), abogado especializado en estudios cripto, regtech consulting. <strong>TP recomendado:</strong> sistema de KYC on-chain con Soulbound Tokens + flujo legal documentado.</div>
+  </dd>
+
+  <dt id="perfil-empresario">Empresario / Consultor / Emprendedor — 14% de la cohorte</dt>
+  <dd>
+    <div class="simple">Vienen con un negocio o idea y quieren entender si Web3 les sirve. Lo más valioso para ellos no es el código en sí, sino el <strong>criterio</strong> para decidir cuándo Web3 aporta valor real y cuándo es marketing. La sección "¿cuándo usar blockchain?" de este glosario es prácticamente para ellos.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Criterio para arquitectura híbrida (qué va Web2 vs qué va Web3)</li>
+        <li>Lenguaje técnico para hablar con devs Web3</li>
+        <li>Modelos de negocio Web3 (DAO, tokens, NFT royalties, DeFi)</li>
+        <li>Estrategia de tokenización para su industria</li>
+        <li>Capacidad de evaluar pitches de proyectos Web3</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida laboral típica:</strong> founder Web3, consultor en tokenización, advisor de startups, VC analyst. <strong>TP recomendado:</strong> MVP funcional de su propia idea (DApp simple) con pitch de modelo de negocio.</div>
+  </dd>
+
+  <dt id="perfil-estudiante">Estudiante avanzado — 14% de la cohorte</dt>
+  <dd>
+    <div class="simple">Estudiantes de Sistemas, Ingeniería, Economía, Derecho que buscan especializarse antes de graduarse. <strong>Su gran ventaja:</strong> tienen tiempo, energía y nada que perder. Salen de la diplomatura con un diferencial fuerte para entrar al mercado laboral con un skill que poca gente tiene.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Posgrado en blockchain mientras todavía sos estudiante = CV diferenciado</li>
+        <li>Portfolio técnico real en GitHub (smart contracts auditados, DApp deployada)</li>
+        <li>Red de contactos con el equipo docente y compañeros (devs senior, fundadores)</li>
+        <li>Ventaja en entrevistas vs egresados sin especialización</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida laboral típica:</strong> primer trabajo full-time como Junior Blockchain Developer (US$30–60k/año LATAM remoto). <strong>TP recomendado:</strong> hacer el TP integrador completo — con eso solo ya tenés un portfolio piece para mostrar.</div>
+  </dd>
+
+  <dt id="perfil-docente">Docente / Investigador — 11% de la cohorte</dt>
+  <dd>
+    <div class="simple">Profesores universitarios y investigadores CONICET que necesitan antecedente formal de posgrado para sus carreras académicas, y que ven blockchain como un campo de investigación abierto.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Título de posgrado oficial (puntaje en concursos académicos)</li>
+        <li>Antecedente para maestrías o doctorados con orientación tecnológica</li>
+        <li>Acceso a temas de investigación abiertos (ZKPs, privacidad, governance)</li>
+        <li>Posibilidad de dirigir tesinas o TFGs en blockchain</li>
+        <li>Material para incorporar a sus propios cursos</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida típica:</strong> incorporar contenidos en cursos propios, abrir línea de investigación, codirección de tesinas. <strong>TP recomendado:</strong> sistema de credenciales académicas SBT — directamente aplicable a su universidad.</div>
+  </dd>
+
+  <dt id="perfil-finanzas">Finanzas / Economía — 8% de la cohorte</dt>
+  <dd>
+    <div class="simple">Economistas, contadores corporativos, gente del sector financiero. Llegan con criterio cuantitativo y necesitan entender DeFi <strong>desde el código</strong>, no desde el marketing — porque si no, los engañan con tasas APY de 200% que esconden riesgo de smart contract.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Capacidad de auditar protocolos DeFi (leer Solidity de Uniswap, Aave)</li>
+        <li>Tokenomics: diseño de incentivos, vesting, emisión, sinks</li>
+        <li>Análisis on-chain (TVL, MEV, métricas de liquidez)</li>
+        <li>Estrategias de yield farming con risk-adjusted returns reales</li>
+        <li>Tokenización de activos financieros (bonos, commodities)</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida típica:</strong> DeFi analyst en fondo cripto, trader on-chain con ventaja informativa, treasury management de DAOs. <strong>TP recomendado:</strong> protocolo DeFi simple (lending pool o AMM) con análisis económico del modelo.</div>
+  </dd>
+
+  <dt id="perfil-data">Data / Ciberseguridad — 5% de la cohorte</dt>
+  <dd>
+    <div class="simple">Pocos pero estratégicos. Para data: blockchain es una <strong>fuente de datos públicos enorme</strong> (Dune Analytics, The Graph). Para seguridad: smart contract auditing es uno de los roles mejor pagos del mundo cripto (Coinspect en BA, Cyfrin global).</div>
+    <div class="tech"><strong>Qué se llevan (data):</strong>
+      <ul>
+        <li>Análisis on-chain con SQL en Dune Analytics</li>
+        <li>Indexación con The Graph</li>
+        <li>Métricas: TVL, MEV, wallet behavior, forensics</li>
+      </ul>
+    </div>
+    <div class="tech"><strong>Qué se llevan (ciberseg):</strong>
+      <ul>
+        <li>Top 10 vulnerabilidades Solidity (reentrancy, integer overflow, front-running)</li>
+        <li>Slither, Echidna (fuzzing), Mythril (symbolic execution)</li>
+        <li>Auditoría manual y patrones de ataque (sandwich, flash loans)</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida típica (data):</strong> Web3 data analyst en exchange (US$70–150k). <strong>(Ciberseg):</strong> Smart Contract Auditor — el rol más caro de Web3 (US$70–500k según Cyfrin 2025). <strong>TP recomendado:</strong> auditoría completa de un protocolo open source + reporte profesional.</div>
+  </dd>
+
+  <dt id="perfil-publico">Funcionario público — 3% de la cohorte</dt>
+  <dd>
+    <div class="simple">Personas del sector público que ven blockchain como herramienta para transparencia gubernamental: BFA, registros catastrales, votación electrónica auditable, transparencia presupuestaria.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Casos de uso en gobierno (BFA, Costa Rica, Estonia)</li>
+        <li>Diseño de sistemas con auditabilidad pública</li>
+        <li>Identidad digital descentralizada para ciudadanos (DIDs)</li>
+        <li>Trazabilidad de fondos públicos on-chain</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida típica:</strong> liderar iniciativas de blockchain en su organismo, abrir cargos técnicos en BFA, asesorar en transformación digital. <strong>TP recomendado:</strong> sistema de transparencia presupuestaria municipal o registro público (notarización de documentos).</div>
+  </dd>
+
+  <dt id="perfil-sociales">Sociología / humanidades / "otros" — 3% de la cohorte</dt>
+  <dd>
+    <div class="simple">Perfiles menos esperados pero muy enriquecedores. Sociólogos estudiando comunidades DAO, comunicadores cubriendo el ecosistema, abogados de derechos humanos viendo identidad descentralizada. Aportan miradas críticas y casos de uso no obvios.</div>
+    <div class="tech"><strong>Qué se llevan:</strong>
+      <ul>
+        <li>Lenguaje técnico mínimo para hablar de blockchain con propiedad</li>
+        <li>Casos de uso fuera de finanzas (governance, identidad, arte)</li>
+        <li>Marco crítico para evaluar promesas vs realidad</li>
+        <li>Integración con investigaciones cualitativas (estudios de DAOs, comunidades NFT)</li>
+      </ul>
+    </div>
+    <div class="example"><strong>Salida típica:</strong> investigación académica interdisciplinaria, periodismo cripto especializado, consultoría sociotécnica. <strong>TP recomendado:</strong> análisis crítico + caso de uso documentado (no necesariamente con código pesado, pero con MVP funcional).</div>
+  </dd>
+
+</dl>
+
+<h3>🔄 Por qué la mezcla de perfiles es una ventaja, no un problema</h3>
+
+<p>
+  Si te preguntan en la charla <em>"¿no es un problema que haya gente sin background técnico?"</em>, la respuesta es no. <strong>Web3 es deliberadamente multidisciplinario:</strong>
+</p>
+
+<ul>
+  <li>Los <strong>devs</strong> aprenden de los <strong>abogados</strong> qué restricciones legales tiene un token.</li>
+  <li>Los <strong>abogados</strong> aprenden de los <strong>devs</strong> qué se puede automatizar y qué no.</li>
+  <li>Los <strong>finanzas</strong> aportan modelos económicos a los proyectos.</li>
+  <li>Los <strong>empresarios</strong> aterrizan los TPs en casos de negocio reales.</li>
+  <li>Los <strong>docentes</strong> traen rigor académico al análisis crítico.</li>
+</ul>
+
+<blockquote>
+  En la industria real, los equipos Web3 son exactamente así: developers + lawyers + tokenomics designers + community managers.
+  La diplomatura simula ese ambiente. Los grupos de TP final típicamente mezclan perfiles, y los proyectos que mejor salen son los que combinan código sólido con caso de uso bien fundamentado.
+</blockquote>
 
 <h2 id="siglas">Cheat sheet de siglas (para tener al lado mientras presentás)</h2>
 
