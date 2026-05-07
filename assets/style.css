@@ -1,26 +1,22 @@
 /* ==========================================================
-   UNLu / DCB — Diplomatura en Blockchain
-   Branding: paleta morada LICDIA (alineada al deck institucional 2026).
-   Layout idéntico a sip2026; solo cambia la paleta a :root.
+   UNLu / DCB — Sistemas Distribuidos y Programación Paralela
+   Branding aligned with pptx-unlu palette
    ========================================================== */
 
 :root {
-  /* Paleta morada LICDIA — reemplaza la navy por el morado del deck.
-     Mantengo los nombres --navy / --mid-blue / --light-blue para no
-     tocar 1000 líneas de CSS estructural; los valores son morados. */
-  --navy:        #44337A;   /* purple deep — header gradient start */
-  --dark-blue:   #6B46C1;   /* primary purple — header gradient end */
-  --mid-blue:    #805AD5;   /* mid purple — borders, accents, links */
-  --light-blue:  #FAF5FF;   /* purple soft — code bg, hover, blockquote */
-  --white:       #FFFFFF;
-  --off-white:   #FAFAFA;
-  --gray:        #6B7280;
-  --dark-gray:   #1A202C;
-  --light-gray:  #E5E7EB;
-  --accent:      #B794F4;   /* lavender accent */
-  --green:       #2F855A;
-  --orange:      #B7791F;
-  --purple:      #6B46C1;
+  --navy: #44337A;
+  --dark-blue: #6B46C1;
+  --mid-blue: #805AD5;
+  --light-blue: #FAF5FF;
+  --white: #FFFFFF;
+  --off-white: #F7FAFC;
+  --gray: #718096;
+  --dark-gray: #2D3748;
+  --light-gray: #E2E8F0;
+  --accent: #E53E3E;
+  --green: #38A169;
+  --orange: #DD6B20;
+  --purple: #805AD5;
 
   --content-max: 880px;
   --sidebar-w: 280px;
@@ -52,7 +48,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 12px rgba(68, 51, 122, 0.22);
+  box-shadow: 0 2px 12px rgba(30, 58, 95, 0.18);
 }
 
 .unlu-header .brand {
@@ -441,7 +437,7 @@ img {
 
 .tp-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(68, 51, 122, 0.18);
+  box-shadow: 0 6px 18px rgba(30, 58, 95, 0.15);
   border-left-color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -873,7 +869,7 @@ details.section-collapsible > p:first-of-type {
   border-color: var(--accent);
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(68, 51, 122, 0.20);
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.18);
 }
 .page-prev-next .arrow {
   font-size: 20px;
@@ -967,7 +963,7 @@ details.section-collapsible > p:first-of-type {
 .flow-step.open .step-status { color: var(--light-blue); }
 .flow-step.open:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(68, 51, 122, 0.25);
+  box-shadow: 0 6px 18px rgba(30, 58, 95, 0.22);
   border-color: var(--accent);
 }
 .flow-step.closed {
@@ -1039,6 +1035,220 @@ details.section-collapsible > p:first-of-type {
     font-size: 20px;
     margin: 0 auto;
   }
+}
+
+/* ---- "Próximamente" / next-up variant ----
+   For practices that are visible/linkable but not yet the active deliverable.
+   Used by both flow-step and tp-card. Muted accent vs the active entrega. */
+.flow-step.open.next-up {
+  background: var(--mid-blue);
+  border-color: var(--accent);
+  border-style: dashed;
+}
+.flow-step.open.next-up .step-status { color: #fff; opacity: 0.92; }
+
+.tp-card.next-up {
+  border-left-color: var(--accent);
+  border-left-style: dashed;
+  background: var(--off-white);
+}
+.tp-card.next-up .tp-num {
+  background: var(--accent);
+  color: var(--navy);
+}
+
+/* === Flow diagram + task cards (de diplounq2026, paleta morada) === */
+/* ============ FLOW DIAGRAM (index.html — visual chronological flow) ============ */
+.flow-diagram {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 8px 0 36px;
+  padding: 18px;
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+}
+/* Arrows are noisy when each card is large; hide on the 2x2 grid layout */
+.flow-diagram .flow-arrow { display: none; }
+
+/* Default styling so cards without .open/.closed (e.g. "próximamente")
+   still get a visible background + border. */
+.flow-step {
+  background: #fff;
+  border: 2px solid var(--light-gray);
+  color: var(--dark-gray);
+  min-width: 0;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 8px;
+  padding: 16px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  border: 2px solid transparent;
+}
+
+/* Two sub-cards inside each flow-step: 🏫 En clase and 🏠 Tarea */
+.flow-step .step-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  text-align: left;
+}
+.flow-step .task-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--light-gray);
+  border-left: 4px solid var(--mid-blue);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: block;
+  text-decoration: none;
+  color: var(--dark-gray);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+/* Override the global a:hover border so we don't double-underline */
+a.task-card,
+a.task-card:hover {
+  border-bottom-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+/* Cards that ARE links highlight on hover */
+a.task-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(166, 25, 46, 0.18);
+  background: #fff;
+  cursor: pointer;
+}
+a.task-card.task-home,
+a.task-card.task-home:hover {
+  border-left-color: var(--accent);
+}
+a.task-card.task-home:hover {
+  box-shadow: 0 4px 10px rgba(84, 83, 63, 0.22);
+}
+/* Non-link cards stay flat (no pointer cursor) */
+.task-card.no-link { cursor: default; }
+
+.flow-step .task-card.task-home {
+  border-left-color: var(--accent);
+}
+.flow-step .task-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--mid-blue);
+  margin-bottom: 4px;
+}
+.flow-step .task-card.task-home .task-label {
+  color: var(--accent);
+}
+.flow-step .task-text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--dark-gray);
+}
+.flow-step .task-text code {
+  font-size: 0.92em;
+  background: var(--light-blue);
+  color: var(--navy);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* Inside the open (red) card, make sub-cards solid white floating
+   on the red background, with strong shadow so they don't blend in. */
+.flow-step.open .task-card {
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+.flow-step.open a.task-card:hover {
+  background: #FFF7F8;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+.flow-step.open .task-text {
+  color: #1F1F1F;
+}
+.flow-step.open .task-text code {
+  background: #FCE8EB;
+  color: var(--mid-blue);
+}
+.flow-step .step-num {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.flow-step .step-name {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.flow-step .step-status {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  letter-spacing: 0.2px;
+}
+.flow-step.open {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--mid-blue);
+}
+.flow-step.open .step-num,
+.flow-step.open .step-name { color: #fff; }
+.flow-step.open .step-status { color: var(--light-blue); }
+/* parent card no longer hovers — sub-cards have their own hover */
+.flow-step.open:hover {
+  border-color: var(--accent);
+}
+.flow-step.closed {
+  background: var(--light-gray);
+  color: var(--dark-gray);
+  border-color: var(--light-gray);
+  opacity: 0.85;
+}
+.flow-step.closed .step-num { color: var(--navy); }
+.flow-step.closed .step-name { color: var(--dark-gray); }
+.flow-step.closed .step-status { color: var(--green); }
+.flow-step.closed:hover {
+  opacity: 1;
+}
+
+/* Próximamente — UNQ olive tint to signal "coming up" without competing
+   with the active red. Uses Pantone 418 C as the accent. */
+.flow-step[data-status="proximamente"] {
+  background: #F5F4ED;
+  border-color: var(--accent);
+  border-left: 5px solid var(--accent);
+}
+.flow-step[data-status="proximamente"] .step-num {
+  color: var(--accent);
+}
+.flow-step[data-status="proximamente"] .step-name {
+  color: #2A2A1E;
+}
+.flow-step[data-status="proximamente"] .step-status {
+  color: var(--accent);
+}
+.flow-arrow {
+  align-self: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--mid-blue);
+  flex-shrink: 0;
+  user-select: none;
+}
+@media (max-width: 720px) {
+  .flow-diagram { grid-template-columns: 1fr; }
+  .flow-step { max-width: none; }
 }
 
 /* ---- "Próximamente" / next-up variant ----
