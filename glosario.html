@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glosario · Diplomatura Blockchain UNLu 2026</title>
+  <link rel="stylesheet" href="assets/style.css?v=20260507c">
+  <style>
+    /* Definition list dedicada para el glosario */
+    dl.glossary {
+      margin: 16px 0 32px;
+    }
+    dl.glossary dt {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 17px;
+      margin-top: 22px;
+      padding: 8px 0 4px;
+      border-bottom: 2px solid var(--mid-blue);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    dl.glossary dt .pron {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 400;
+      font-style: italic;
+    }
+    dl.glossary dt .tag {
+      font-size: 11px;
+      background: var(--light-blue);
+      color: var(--navy);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    dl.glossary dd {
+      margin: 6px 0 0 0;
+      padding: 0 0 0 0;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    dl.glossary dd .simple {
+      background: var(--light-blue);
+      padding: 10px 14px;
+      border-left: 3px solid var(--mid-blue);
+      border-radius: 0 6px 6px 0;
+      margin: 6px 0;
+    }
+    dl.glossary dd .simple::before {
+      content: "📖 En simple: ";
+      font-weight: 700;
+      color: var(--navy);
+    }
+    dl.glossary dd .tech {
+      margin-top: 8px;
+      color: var(--dark-gray);
+    }
+    dl.glossary dd .example {
+      background: var(--off-white);
+      border-left: 3px solid var(--accent);
+      padding: 8px 14px;
+      margin: 8px 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 14px;
+    }
+    dl.glossary dd .example::before {
+      content: "💡 Ejemplo: ";
+      font-weight: 700;
+      color: var(--navy);
+    }
+    /* Quick anchor list at top */
+    .quick-nav {
+      background: var(--light-blue);
+      border-left: 5px solid var(--mid-blue);
+      padding: 16px 22px;
+      border-radius: 0 6px 6px 0;
+      margin: 20px 0 32px;
+    }
+    .quick-nav strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .quick-nav a {
+      display: inline-block;
+      margin: 4px 6px 4px 0;
+      padding: 4px 10px;
+      background: var(--white);
+      border: 1px solid var(--mid-blue);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .quick-nav a:hover {
+      background: var(--mid-blue);
+      color: white;
+      border-color: var(--mid-blue);
+    }
+  </style>
+</head>
+<body>
+
+<header class="unlu-header">
+  <a href="index.html" class="brand" title="Volver al menú principal">
+    <img src="assets/unlu_escudo.png" alt="Universidad Nacional de Luján" class="logo unlu">
+    <img src="assets/logo_dcb.png" alt="Departamento de Ciencias Básicas" class="logo dcb">
+    <div class="brand-text">
+      <div class="institution">Universidad Nacional de Luján</div>
+      <div class="department">Departamento de Ciencias Básicas · LICDIA</div>
+    </div>
+  </a>
+  <div class="course-bar">
+    <span class="course">Glosario · Términos técnicos del programa</span>
+    <span class="year">2026</span>
+    <span class="instructor">Para presentar y para entender</span>
+  </div>
+</header>
+
+<div class="layout">
+
+<aside class="toc-sidebar">
+  <div class="toc-title">Categorías</div>
+  <ul>
+    <li><a href="index.html">← Volver al inicio</a></li>
+    <li><a href="#bloque-base">1. Lo más básico</a>
+      <ul>
+        <li><a href="#blockchain">Blockchain</a></li>
+        <li><a href="#smart-contract">Smart contract</a></li>
+        <li><a href="#wallet">Wallet</a></li>
+        <li><a href="#dapp">DApp</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-redes">2. Redes blockchain</a>
+      <ul>
+        <li><a href="#ethereum">Ethereum</a></li>
+        <li><a href="#bitcoin">Bitcoin</a></li>
+        <li><a href="#evm">EVM</a></li>
+        <li><a href="#l1-l2">L1 / L2</a></li>
+        <li><a href="#sepolia">Sepolia / Base Sepolia</a></li>
+        <li><a href="#bfa">BFA</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-cripto">3. Conceptos criptográficos</a>
+      <ul>
+        <li><a href="#hash">Hash</a></li>
+        <li><a href="#consenso">Consenso (PoW / PoS)</a></li>
+        <li><a href="#zkp">ZKP</a></li>
+        <li><a href="#gas">Gas</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-tools">4. Herramientas</a>
+      <ul>
+        <li><a href="#solidity">Solidity</a></li>
+        <li><a href="#foundry">Foundry · forge · anvil · cast</a></li>
+        <li><a href="#openzeppelin">OpenZeppelin</a></li>
+        <li><a href="#slither">Slither</a></li>
+        <li><a href="#metamask">MetaMask</a></li>
+        <li><a href="#etherscan">Etherscan</a></li>
+        <li><a href="#ipfs">IPFS</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-frontend">5. Frontend Web3</a>
+      <ul>
+        <li><a href="#nextjs">Next.js</a></li>
+        <li><a href="#wagmi">wagmi</a></li>
+        <li><a href="#rainbowkit">RainbowKit</a></li>
+        <li><a href="#ethersjs">ethers.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-tokens">6. Tokens y estándares</a>
+      <ul>
+        <li><a href="#token">Token</a></li>
+        <li><a href="#erc20">ERC-20</a></li>
+        <li><a href="#erc721">ERC-721 / NFT</a></li>
+        <li><a href="#sbt">SBT (Soulbound)</a></li>
+        <li><a href="#stablecoin">Stablecoin</a></li>
+        <li><a href="#tokenizacion">Tokenización / RWA</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-defi">7. DeFi y aplicaciones</a>
+      <ul>
+        <li><a href="#defi">DeFi</a></li>
+        <li><a href="#dao">DAO</a></li>
+        <li><a href="#tvl">TVL</a></li>
+        <li><a href="#yield-farming">Yield farming</a></li>
+        <li><a href="#lending">Lending</a></li>
+        <li><a href="#liquidity-pool">Liquidity pool</a></li>
+        <li><a href="#governance">Governance token</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-seguridad">8. Seguridad</a>
+      <ul>
+        <li><a href="#reentrancy">Reentrancy</a></li>
+        <li><a href="#cei">Patrón CEI</a></li>
+        <li><a href="#access-control">AccessControl</a></li>
+        <li><a href="#auditoria">Auditoría</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-mercado">9. Términos de mercado / industria</a>
+      <ul>
+        <li><a href="#web3">Web3</a></li>
+        <li><a href="#regtech">Regtech</a></li>
+        <li><a href="#kyc-on-chain">KYC on-chain</a></li>
+        <li><a href="#did">DID</a></li>
+        <li><a href="#mev">MEV</a></li>
+        <li><a href="#bridge">Bridge</a></li>
+      </ul>
+    </li>
+    <li><a href="#bloque-empresas">10. Empresas y proyectos AR</a>
+      <ul>
+        <li><a href="#lemon">Lemon</a></li>
+        <li><a href="#ripio">Ripio · wARS</a></li>
+        <li><a href="#decentraland">Decentraland</a></li>
+        <li><a href="#rather-labs">Rather Labs · Koibanx · Xcapit</a></li>
+      </ul>
+    </li>
+    <li><a href="#siglas">Cheat sheet de siglas</a></li>
+  </ul>
+</aside>
+
+<main class="content">
+
+<h1>Glosario — todo lo que mencionás en la presentación</h1>
+<p style="color: var(--gray); font-size: 15px; margin: 0 0 24px;">
+  Diccionario práctico de los términos técnicos que aparecen en el deck, la web y la guía de presentación.
+  Cada entrada tiene <strong>una explicación simple</strong> (analogía o comparación), <strong>el detalle técnico</strong> y un <strong>ejemplo concreto</strong>.
+  Si te preguntan algo en la charla y no estás seguro — abrí esta página y leé.
+</p>
+
+<div class="quick-nav">
+  <strong>Si solo tenés 5 minutos antes de presentar, leé estos 10:</strong>
+  <a href="#blockchain">Blockchain</a>
+  <a href="#smart-contract">Smart contract</a>
+  <a href="#solidity">Solidity</a>
+  <a href="#foundry">Foundry</a>
+  <a href="#evm">EVM</a>
+  <a href="#l1-l2">L1 / L2</a>
+  <a href="#erc721">NFT / ERC-721</a>
+  <a href="#defi">DeFi</a>
+  <a href="#wallet">Wallet</a>
+  <a href="#sbt">SBT</a>
+</div>
+
+<h2 id="bloque-base">1. Lo más básico</h2>
+
+<dl class="glossary">
+
+  <dt id="blockchain">Blockchain <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Una base de datos compartida entre miles de computadoras donde nadie puede borrar ni modificar lo que ya se escribió. Es como un cuaderno público donde todos pueden leer y escribir, pero las páginas viejas se vuelven de piedra y nadie las puede arrancar.</div>
+    <div class="tech"><strong>Técnico:</strong> Estructura de datos en cadena de bloques, cada bloque contiene un hash criptográfico del bloque anterior, lo que hace inviable modificar bloques antiguos sin reescribir toda la cadena. La validación está distribuida entre nodos (computadoras) que llegan a consenso.</div>
+    <div class="example">Bitcoin (cadena de pagos), Ethereum (cadena de contratos programables), BFA (cadena pública argentina).</div>
+  </dd>
+
+  <dt id="smart-contract">Smart contract <span class="pron">"contrato inteligente"</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Un programa que vive en la blockchain y se ejecuta automáticamente cuando se cumplen ciertas condiciones. Es como un trato escrito en piedra que se cumple solo, sin necesidad de un escribano o una empresa que lo administre.</div>
+    <div class="tech"><strong>Técnico:</strong> Código (típicamente Solidity para Ethereum) que se compila a bytecode y se despliega en la blockchain. Una vez desplegado, el código no se puede modificar (excepto por patrones específicos de upgradeability). Cualquier persona o programa puede invocar sus funciones pagando gas.</div>
+    <div class="example">Un contrato que devuelve plata si llueve más de X mm en una fecha específica. Un sistema de votación donde los votos se cuentan automáticamente. Un sistema de credenciales que solo emite títulos firmados por una universidad.</div>
+  </dd>
+
+  <dt id="wallet">Wallet <span class="pron">"billetera"</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Un programa (o app, o dispositivo) que custodia tus claves privadas y firma transacciones. <strong>No guarda monedas</strong> — guarda las claves para mover monedas que viven en la blockchain.</div>
+    <div class="tech"><strong>Técnico:</strong> Genera y almacena claves criptográficas (clave privada + clave pública). La dirección pública es como un IBAN que recibe fondos. La clave privada firma transacciones para mover fondos. Si perdés la clave privada, perdés acceso a todo.</div>
+    <div class="example">MetaMask (wallet de browser, la más popular), Ledger (wallet de hardware), Lemon o Belo (wallets custodiadas, la empresa guarda tu clave por vos).</div>
+  </dd>
+
+  <dt id="dapp">DApp <span class="pron">"di-ap"</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Una aplicación cuyo backend (la lógica) corre en una blockchain en lugar de en un servidor de una empresa. Tiene un frontend tradicional (una web), pero cuando hacés clic en "comprar" o "votar", lo que se ejecuta es un smart contract.</div>
+    <div class="tech"><strong>Técnico:</strong> Aplicación descentralizada compuesta por (1) smart contracts en blockchain como backend, (2) frontend web tradicional (HTML/JS/React), (3) interacción vía wallet del usuario. Lo "descentralizado" es que la lógica crítica vive en cadena pública y no en un servidor que una empresa puede apagar.</div>
+    <div class="example">Uniswap (intercambio de tokens descentralizado), OpenSea (marketplace de NFTs), Aave (préstamos descentralizados).</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-redes">2. Redes blockchain</h2>
+
+<dl class="glossary">
+
+  <dt id="ethereum">Ethereum <span class="tag">red</span></dt>
+  <dd>
+    <div class="simple">La blockchain más usada para smart contracts. Si Bitcoin es "dinero programable", Ethereum es una "computadora mundial" donde cualquiera puede subir programas. Tiene moneda propia (ETH) que se usa para pagar el costo de ejecutar esos programas.</div>
+    <div class="tech"><strong>Técnico:</strong> Blockchain pública lanzada en 2015 por Vitalik Buterin. Soporta smart contracts vía la EVM. Migró de PoW a PoS en 2022 ("The Merge"). Token nativo: ETH. Ecosistema más grande de devs y aplicaciones DeFi/NFT.</div>
+    <div class="example">Casi todo lo que se ve en la diplomatura corre sobre Ethereum o cadenas compatibles (Polygon, Base, Arbitrum).</div>
+  </dd>
+
+  <dt id="bitcoin">Bitcoin <span class="tag">red</span></dt>
+  <dd>
+    <div class="simple">La primera blockchain. Inventada en 2008 por alguien anónimo bajo el nombre "Satoshi Nakamoto". Sirve básicamente como dinero digital — no para programar contratos.</div>
+    <div class="tech"><strong>Técnico:</strong> Blockchain pública orientada exclusivamente a transferencia de valor. Sistema PoW. Bloques cada ~10 min. Suministro fijo de 21M de BTC. No tiene smart contracts complejos como Ethereum (solo scripts limitados).</div>
+    <div class="example">Inversión / reserva de valor / pagos. No se programan apps en Bitcoin (para eso está Ethereum).</div>
+  </dd>
+
+  <dt id="evm">EVM <span class="pron">"i-vi-em"</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">"Ethereum Virtual Machine" — la máquina virtual donde corren todos los smart contracts de Ethereum. Es como la JVM de Java, pero para blockchain: cualquier cadena que sea "EVM-compatible" puede correr el mismo código de Solidity.</div>
+    <div class="tech"><strong>Técnico:</strong> Stack-based virtual machine de 256 bits. Ejecuta bytecode resultante de compilar Solidity (o Vyper). Cada operación cuesta gas. Es deterministic: el mismo input genera el mismo output en cualquier nodo. Determina cómo se ejecutan los contratos en Ethereum y todas las cadenas EVM-compatibles.</div>
+    <div class="example">Polygon, Base, Arbitrum, Optimism, BFA — todas son EVM-compatibles, así que un contrato Solidity corre en cualquiera con cambios mínimos.</div>
+  </dd>
+
+  <dt id="l1-l2">Layer 1 / Layer 2 <span class="pron">"L1 / L2"</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">L1 es la blockchain principal (Ethereum, Bitcoin) — la más segura pero la más cara y lenta. L2 es una blockchain "encima" de L1 que es más rápida y barata, pero hereda la seguridad de la L1. Es como tener una autopista (L1) y un atajo de servicio (L2) que termina en la misma autopista.</div>
+    <div class="tech"><strong>Técnico:</strong> L1 = blockchain base (Ethereum, Bitcoin, Solana). L2 = solución de escalamiento que procesa transacciones fuera de L1 y las "asienta" en L1 periódicamente. Tipos: rollups (optimistic y zk), state channels, sidechains. L2s reducen costos 10–100x respecto a L1.</div>
+    <div class="example">L1: Ethereum mainnet. L2: Base (de Coinbase), Arbitrum, Optimism, Polygon zkEVM. En la diplomatura desplegamos en <strong>Base Sepolia</strong> (la testnet de Base).</div>
+  </dd>
+
+  <dt id="sepolia">Sepolia / Base Sepolia <span class="tag">testnet</span></dt>
+  <dd>
+    <div class="simple">Versiones de prueba de Ethereum y Base donde el ETH no vale nada (lo conseguís gratis de un "faucet"). Se usan para probar contratos antes de gastar plata real en mainnet.</div>
+    <div class="tech"><strong>Técnico:</strong> <strong>Sepolia</strong> es la testnet oficial actual de Ethereum (reemplazó a Goerli en 2024). <strong>Base Sepolia</strong> es la testnet de Base (L2 de Coinbase). Tienen su propio explorer (<code>sepolia.etherscan.io</code> y <code>sepolia.basescan.org</code>). El ETH se obtiene gratis de "faucets" (Google Cloud Web3, Alchemy, etc).</div>
+    <div class="example">En la clase 7 deployás tu primer NFT en Sepolia. En el TP final desplegás el sistema completo en Base Sepolia. Si tu contrato funciona ahí, después es 1 comando moverlo a mainnet (que sí cuesta plata real).</div>
+  </dd>
+
+  <dt id="bfa">BFA <span class="pron">"Blockchain Federal Argentina"</span> <span class="tag">red</span></dt>
+  <dd>
+    <div class="simple">Una blockchain pública argentina, mantenida por gobiernos provinciales y municipios. Sirve para registros públicos auditables: títulos universitarios, expedientes, votaciones.</div>
+    <div class="tech"><strong>Técnico:</strong> Red blockchain federal lanzada en 2018, basada en Ethereum (PoA — Proof of Authority). Tiene nodos en universidades, ministerios y municipios. Caso uso típico: timestamping de documentos oficiales para que sean verificables públicamente.</div>
+    <div class="example">El Ministerio de Educación usó BFA para verificación de títulos universitarios. Algunos municipios la usan para registro de actas.</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-cripto">3. Conceptos criptográficos</h2>
+
+<dl class="glossary">
+
+  <dt id="hash">Hash <span class="tag">cripto</span></dt>
+  <dd>
+    <div class="simple">Una "huella digital" de cualquier dato. Una función que toma cualquier cosa (un texto, un archivo) y devuelve una cadena de letras y números fija. Si cambia un solo byte del input, el hash cambia completamente. <strong>No se puede revertir</strong>: del hash no podés recuperar el input.</div>
+    <div class="tech"><strong>Técnico:</strong> Función criptográfica de una vía. Bitcoin usa SHA-256 (genera 256 bits / 64 caracteres hex). Ethereum usa Keccak-256. Propiedades: determinista, rápido de calcular, imposible de revertir, resistente a colisiones.</div>
+    <div class="example">El hash de "hola" en SHA-256 es <code>b221d9...</code>. El hash de "Hola" (con mayúscula) es completamente distinto. Cada bloque de la blockchain tiene el hash del bloque anterior — eso hace que sea imposible modificar un bloque viejo sin invalidar todos los siguientes.</div>
+  </dd>
+
+  <dt id="consenso">Consenso (PoW / PoS) <span class="tag">cripto</span></dt>
+  <dd>
+    <div class="simple">El mecanismo por el que miles de computadoras se ponen de acuerdo sobre cuál es la versión "real" de la blockchain. <strong>PoW</strong> (Proof of Work): los mineros gastan electricidad resolviendo problemas matemáticos. <strong>PoS</strong> (Proof of Stake): los validadores depositan tokens como garantía y los pierden si tratan de hacer trampa.</div>
+    <div class="tech"><strong>Técnico:</strong> <strong>PoW</strong>: los mineros compiten por encontrar un nonce que produzca un hash con ciertos ceros. Bitcoin todavía usa PoW. <strong>PoS</strong>: validadores stake-ean ETH (32 ETH mínimo) y son seleccionados al azar para producir bloques. Ethereum migró a PoS en 2022 ("The Merge"), reduciendo el consumo energético en 99.9%.</div>
+    <div class="example">Bitcoin = PoW (consume mucha energía). Ethereum = PoS (eficiente). Polygon, Base, BFA = todas PoS.</div>
+  </dd>
+
+  <dt id="zkp">ZKP <span class="pron">"Zero-Knowledge Proof"</span> <span class="tag">avanzado</span></dt>
+  <dd>
+    <div class="simple">Una técnica criptográfica que te permite probar que sabés algo <strong>sin revelar el dato</strong>. Como probar que sos mayor de edad sin mostrar el DNI.</div>
+    <div class="tech"><strong>Técnico:</strong> Protocolo donde un "prover" demuestra a un "verifier" que cierta afirmación es verdadera, sin revelar más información. Variantes: zk-SNARKs (succinct), zk-STARKs (transparent). Aplicaciones: privacidad on-chain (Zcash), zk-rollups (Polygon zkEVM, Starknet).</div>
+    <div class="example">Probar que tenés más de 18 años sin revelar tu fecha de nacimiento. Demostrar que sos ciudadano sin mostrar el DNI. Hacer transacciones privadas en una blockchain pública.</div>
+  </dd>
+
+  <dt id="gas">Gas <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Lo que pagás cada vez que usás la blockchain. Cada operación (escribir, calcular, almacenar) consume "unidades de gas" y vos pagás en la moneda nativa (ETH). Más complejo el contrato → más gas → más caro.</div>
+    <div class="tech"><strong>Técnico:</strong> Unidad de medida del costo computacional en la EVM. Cada opcode (ADD, SLOAD, SSTORE) tiene un costo en gas. Total a pagar = <code>gasUsed × gasPrice</code>. <code>gasPrice</code> se mide en gwei (1 gwei = 10⁻⁹ ETH). En L1 mainnet de Ethereum: una transferencia simple ~21k gas, un swap en Uniswap ~150k gas.</div>
+    <div class="example">Una transferencia simple en Ethereum mainnet puede costar US$1–10 según congestión. La misma operación en Base Sepolia: gratis (testnet) o céntimos en Base mainnet.</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-tools">4. Herramientas técnicas</h2>
+
+<dl class="glossary">
+
+  <dt id="solidity">Solidity <span class="tag">lenguaje</span></dt>
+  <dd>
+    <div class="simple">El lenguaje de programación más usado para escribir smart contracts en Ethereum. Sintaxis parecida a JavaScript con elementos de C++. Si sabés cualquier lenguaje moderno, lo agarrás rápido.</div>
+    <div class="tech"><strong>Técnico:</strong> Lenguaje orientado a objetos, estáticamente tipado, compilado a bytecode EVM. Soporta herencia, interfaces, librerías. Las versiones rotan rápido (actual: 0.8.x con safemath nativo). Funciones tienen visibilidad (public/private/internal/external) y modificadores (view/pure/payable).</div>
+    <div class="example"><code>contract MiContrato { uint256 public counter; function increment() public { counter++; } }</code> — un contador básico. La diplomatura cubre Solidity de cero a auditoría.</div>
+  </dd>
+
+  <dt id="foundry">Foundry · forge · anvil · cast <span class="tag">toolchain</span></dt>
+  <dd>
+    <div class="simple">El toolchain moderno para desarrollar smart contracts. Tiene 3 piezas: <strong>forge</strong> (build/test), <strong>anvil</strong> (blockchain local en tu compu para probar), <strong>cast</strong> (CLI para hablar con cualquier contrato desplegado).</div>
+    <div class="tech"><strong>Técnico:</strong> Suite de herramientas escrita en Rust por Paradigm. Reemplazó a Hardhat (JavaScript) como estándar profesional. Tests escritos en Solidity (no JS), 10–100x más rápidos. <code>forge test</code> corre la suite, <code>forge script</code> deploya, <code>anvil</code> levanta nodo local con cuentas pre-fundeadas, <code>cast call</code> lee, <code>cast send</code> escribe.</div>
+    <div class="example">Lo usan Uniswap, Aave, Optimism, Coinbase. En la diplomatura empezamos con Foundry desde la clase 4.</div>
+  </dd>
+
+  <dt id="openzeppelin">OpenZeppelin <span class="tag">librería</span></dt>
+  <dd>
+    <div class="simple">La biblioteca de smart contracts auditados y reutilizables más usada del mundo. Es como la "stdlib" de Solidity: te da implementaciones probadas de ERC-20, ERC-721, AccessControl, Pausable, etc. <strong>No reinventés seguridad — usá OpenZeppelin</strong>.</div>
+    <div class="tech"><strong>Técnico:</strong> Librería open source de OpenZeppelin Labs. Contratos auditados profesionalmente, con tests exhaustivos. Patrones implementados: Ownable, AccessControl, ReentrancyGuard, Pausable, ERC-20/721/1155, governance, upgradeable patterns. Se importa con <code>import "@openzeppelin/contracts/token/ERC721/ERC721.sol"</code>.</div>
+    <div class="example">El contrato <code>AcademicCredentials</code> de la diplomatura extiende <code>ERC721</code> + <code>AccessControl</code> de OpenZeppelin.</div>
+  </dd>
+
+  <dt id="slither">Slither <span class="tag">seguridad</span></dt>
+  <dd>
+    <div class="simple">Un programa que analiza tu código Solidity y te dice qué vulnerabilidades tiene <strong>antes de que alguien te robe</strong>. Es gratis, open source, lo usás como un linter pero para seguridad.</div>
+    <div class="tech"><strong>Técnico:</strong> Analizador estático de smart contracts hecho por Trail of Bits (firma top de auditoría). Detecta automáticamente reentrancy, integer overflow, uninitialized storage, shadowing, dangerous strict equalities, etc. Tiene 90+ detectores. Se ejecuta con <code>slither MiContrato.sol</code>.</div>
+    <div class="example">En la clase 10 corremos Slither sobre <code>AcademicCredentials</code> y resolvemos los warnings antes de desplegar a Base Sepolia.</div>
+  </dd>
+
+  <dt id="metamask">MetaMask <span class="tag">wallet</span></dt>
+  <dd>
+    <div class="simple">La wallet de browser más usada para interactuar con DApps. Es una extensión de Chrome/Firefox que guarda tus claves privadas y firma transacciones cuando una web te las pide.</div>
+    <div class="tech"><strong>Técnico:</strong> Wallet HD (Hierarchical Deterministic) basada en BIP-39 (mnemónica de 12 palabras) y BIP-44. Soporta cualquier red EVM-compatible (mainnet, testnets, L2s, BFA). Inyecta <code>window.ethereum</code> en el browser, lo que permite que las DApps soliciten firmas via JS.</div>
+    <div class="example">En la clase 1 se instala MetaMask, se conecta a Sepolia, se obtiene ETH de un faucet y se hace la primera transacción.</div>
+  </dd>
+
+  <dt id="etherscan">Etherscan / BaseScan <span class="tag">explorer</span></dt>
+  <dd>
+    <div class="simple">El "Google" de la blockchain. Una web donde podés buscar cualquier dirección, transacción o contrato y ver todo lo que hizo, balance, código, etc.</div>
+    <div class="tech"><strong>Técnico:</strong> Block explorer público para Ethereum (etherscan.io) y forks (basescan.org para Base, polygonscan.com para Polygon). Indexa todos los bloques y permite verificación de código fuente de contratos (uploadeás tu Solidity y matchea el bytecode desplegado para que se pueda inspeccionar).</div>
+    <div class="example">Después de deployar tu NFT en Sepolia, vas a <code>sepolia.etherscan.io</code>, pegás la dirección y ves el código + todos los mint events.</div>
+  </dd>
+
+  <dt id="ipfs">IPFS <span class="pron">"InterPlanetary File System"</span> <span class="tag">storage</span></dt>
+  <dd>
+    <div class="simple">Un sistema descentralizado para guardar archivos. La blockchain es muy cara para guardar imágenes (un JPG de 1MB cuesta cientos de dólares), entonces se guardan los archivos en IPFS y solo se guarda el hash en la blockchain.</div>
+    <div class="tech"><strong>Técnico:</strong> Red P2P de almacenamiento content-addressed (los archivos se identifican por su hash, no por ubicación). Cada archivo tiene un CID (Content Identifier). Servicios como Pinata, web3.storage, Infura te dan pinning (mantener el archivo disponible). Estándar de facto para metadata de NFTs.</div>
+    <div class="example">Cuando minteás un NFT con imagen, la imagen vive en IPFS (<code>ipfs://Qm...</code>) y solo el hash queda on-chain. El NFT "apunta" a esa URL.</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-frontend">5. Frontend Web3</h2>
+
+<dl class="glossary">
+
+  <dt id="nextjs">Next.js <span class="tag">framework</span></dt>
+  <dd>
+    <div class="simple">El framework de React más usado para hacer webs profesionales. No es Web3 específicamente, pero es el estándar para los frontends de DApps modernos.</div>
+    <div class="tech"><strong>Técnico:</strong> Framework full-stack basado en React. Soporta SSR (server-side rendering), SSG (static), App Router, API routes. Versión actual: Next.js 14+. Usado por Vercel (su creador), Coinbase, Uniswap, OpenSea.</div>
+    <div class="example">En la clase 9 montamos un Next.js que se conecta a tu contrato de credenciales académicas. Lo deployás en Vercel gratis.</div>
+  </dd>
+
+  <dt id="wagmi">wagmi <span class="pron">"wag-mi"</span> <span class="tag">librería</span></dt>
+  <dd>
+    <div class="simple">Una colección de "hooks" de React (funciones reutilizables) para hablar con Ethereum desde tu frontend. Hace que <code>const balance = useBalance()</code> sea suficiente para mostrar el balance de un usuario.</div>
+    <div class="tech"><strong>Técnico:</strong> Librería TypeScript-first construida sobre viem (sucesor moderno de ethers.js). Hooks: <code>useAccount</code>, <code>useBalance</code>, <code>useReadContract</code>, <code>useWriteContract</code>, <code>useWaitForTransactionReceipt</code>. Maneja cache, refresh, errors automáticamente.</div>
+    <div class="example"><code>const { data } = useReadContract({ address: '0x...', abi, functionName: 'balanceOf', args: [user] })</code> — leer el balance de un NFT.</div>
+  </dd>
+
+  <dt id="rainbowkit">RainbowKit <span class="tag">UI</span></dt>
+  <dd>
+    <div class="simple">Un componente de React que te da el botón "Connect Wallet" que ves en todas las DApps modernas — con MetaMask, WalletConnect, Coinbase Wallet, todo en uno. Un import y ya está.</div>
+    <div class="tech"><strong>Técnico:</strong> Librería de UI desarrollada por Rainbow (la wallet). Soporta MetaMask, WalletConnect v2, Coinbase Wallet, Ledger, Trust, Rainbow, etc. Configurable por chain (Ethereum, Base, Polygon...). Provee modal de conexión con un look profesional.</div>
+    <div class="example">Es lo que está atrás del botón "Connect" de Uniswap. En la clase 9 lo usamos para que tu DApp acepte cualquier wallet.</div>
+  </dd>
+
+  <dt id="ethersjs">ethers.js / viem <span class="tag">librería</span></dt>
+  <dd>
+    <div class="simple">La librería JavaScript que te permite hablar con la blockchain desde el frontend (o desde un script Node). Manda transacciones, lee estado de contratos, etc.</div>
+    <div class="tech"><strong>Técnico:</strong> ethers.js: librería tradicional para Ethereum, mantenida por Richard Moore. <strong>viem</strong>: alternativa moderna usada por wagmi, type-safe, más liviana. Provee abstracciones de Provider (lectura), Signer (firma), Contract (interfaz a contratos), BigNumber (manejo de uint256).</div>
+    <div class="example"><code>const provider = new ethers.JsonRpcProvider(url); const balance = await provider.getBalance(address);</code> — leer el balance de cualquier dirección.</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-tokens">6. Tokens y estándares</h2>
+
+<dl class="glossary">
+
+  <dt id="token">Token <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Un activo digital que vive dentro de un smart contract. Los tokens pueden ser fungibles (todos iguales, como dinero — ej: USDC) o no fungibles (cada uno único, como una obra de arte — ej: NFT).</div>
+    <div class="tech"><strong>Técnico:</strong> Implementaciones de estándares ERC. Cada token "vive" en un contrato (un solo contrato puede tener millones de tokens). Tipos: fungibles (ERC-20), no fungibles (ERC-721), semi-fungibles (ERC-1155).</div>
+    <div class="example">USDC, ETH, USDT son tokens fungibles. CryptoPunks, Bored Apes son tokens no fungibles (NFTs).</div>
+  </dd>
+
+  <dt id="erc20">ERC-20 <span class="tag">estándar</span></dt>
+  <dd>
+    <div class="simple">El estándar para tokens fungibles (intercambiables uno por uno) en Ethereum. Si seguís el estándar, tu token funciona automáticamente en cualquier wallet, exchange y DApp.</div>
+    <div class="tech"><strong>Técnico:</strong> Estándar definido en EIP-20. Funciones obligatorias: <code>totalSupply</code>, <code>balanceOf</code>, <code>transfer</code>, <code>approve</code>, <code>transferFrom</code>, <code>allowance</code>. Eventos: <code>Transfer</code>, <code>Approval</code>. Implementación más usada: <code>OpenZeppelin/ERC20.sol</code>.</div>
+    <div class="example">USDC, USDT, DAI, Uniswap (UNI), Aave (AAVE) — todos son ERC-20. En la clase 6 implementás tu propio ERC-20.</div>
+  </dd>
+
+  <dt id="erc721">ERC-721 / NFT <span class="tag">estándar</span></dt>
+  <dd>
+    <div class="simple">El estándar para tokens no fungibles — cada uno único e identificable. Por eso se llaman NFTs (Non-Fungible Tokens). Sirve para arte digital, coleccionables, certificados, identidad.</div>
+    <div class="tech"><strong>Técnico:</strong> Estándar EIP-721. Cada token tiene un <code>tokenId</code> único dentro del contrato. Funciones: <code>ownerOf(tokenId)</code>, <code>safeTransferFrom</code>, <code>tokenURI</code> (puntero a metadata, típicamente IPFS). Metadata estándar: nombre, descripción, image URL, attributes.</div>
+    <div class="example">CryptoPunks, Bored Apes, Decentraland LAND, certificados académicos. La diplomatura entera gira alrededor de ERC-721 con <code>AcademicCredentials</code>.</div>
+  </dd>
+
+  <dt id="sbt">SBT (Soulbound Token) <span class="pron">"sol-baund"</span> <span class="tag">avanzado</span></dt>
+  <dd>
+    <div class="simple">Un NFT que <strong>no se puede transferir</strong>. Una vez que te lo dan, queda atado a tu wallet para siempre. Sirve para credenciales (no querés que alguien venda su título universitario), reputación, identidad.</div>
+    <div class="tech"><strong>Técnico:</strong> Concepto introducido por Vitalik Buterin (2022). Implementación: ERC-721 con la función <code>_beforeTokenTransfer</code> que rechaza cualquier transfer (excepto mint y burn). EIP-5114 y EIP-5484 estandarizan variantes. Soporta revocación por el issuer.</div>
+    <div class="example">El TP final de la diplomatura es un sistema de credenciales académicas con SBT — UNLu te da el certificado y vos no lo podés vender ni regalar.</div>
+  </dd>
+
+  <dt id="stablecoin">Stablecoin <span class="tag">token</span></dt>
+  <dd>
+    <div class="simple">Un token cripto cuyo precio está atado a una moneda fiat (USD, ARS) o a un activo real. Sirve para no estar expuesto a la volatilidad del cripto pero seguir operando on-chain.</div>
+    <div class="tech"><strong>Técnico:</strong> Implementación típica: ERC-20 que mantiene paridad 1:1 con USD vía colateralización (USDC tiene US$1 real por cada token, auditado). Variantes: fiat-backed (USDC, USDT), cripto-backed (DAI), algorítmicas (riesgosas — UST colapsó en 2022).</div>
+    <div class="example">USDC (Circle), USDT (Tether), DAI (MakerDAO), <strong>wARS (Ripio)</strong> — la primera stablecoin atada al peso argentino, lanzada en 2025.</div>
+  </dd>
+
+  <dt id="tokenizacion">Tokenización / RWA <span class="pron">"Real World Assets"</span> <span class="tag">caso uso</span></dt>
+  <dd>
+    <div class="simple">Representar un activo del mundo real (un departamento, un bono, soja) como un token en blockchain. Eso permite fraccionarlo (vendés 1% de un edificio), comerciarlo 24/7 y automatizar dividendos.</div>
+    <div class="tech"><strong>Técnico:</strong> Caso de uso emergente de blockchain. Combina ERC-20/721 con frameworks legales (los tokens deben representar derechos legalmente reconocidos). Estándares en desarrollo: ERC-3525 (semi-fungible), ERC-1400 (security tokens). Mercado proyectado: trillones de dólares.</div>
+    <div class="example">Agrotoken (AR) tokeniza commodities agrícolas. Real Estate tokens (varios proyectos globales). Bonos del tesoro tokenizados (BlackRock BUIDL).</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-defi">7. DeFi y aplicaciones</h2>
+
+<dl class="glossary">
+
+  <dt id="defi">DeFi <span class="pron">"De-Fi" — Finanzas Descentralizadas</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Servicios financieros (préstamos, intercambios, ahorros) que corren en smart contracts en lugar de en bancos. <strong>Sin intermediarios</strong>, sin sucursales, abierto 24/7, accesible desde cualquier wallet.</div>
+    <div class="tech"><strong>Técnico:</strong> Ecosistema de protocolos sobre blockchain (mayormente Ethereum + L2s) que replican primitives financieros: AMMs (Uniswap), lending pools (Aave, Compound), stablecoins descentralizadas (DAI), derivatives (dYdX, GMX), insurance (Nexus), real yield (Pendle).</div>
+    <div class="example">Uniswap (intercambio descentralizado), Aave (préstamos), MakerDAO (DAI), Curve (stablecoins). TVL global: ~US$100B en 2025.</div>
+  </dd>
+
+  <dt id="dao">DAO <span class="pron">"DAO — Decentralized Autonomous Organization"</span> <span class="tag">core</span></dt>
+  <dd>
+    <div class="simple">Una organización donde las decisiones se votan on-chain y la ejecución es automática vía smart contracts. No hay CEO ni board — el código manda.</div>
+    <div class="tech"><strong>Técnico:</strong> Smart contracts que codifican governance: token holders proponen (<code>propose()</code>), votan (<code>castVote()</code>) y ejecutan (<code>execute()</code>). OpenZeppelin Governor es la implementación más usada. Variantes: token-weighted, quadratic, delegation. Integraciones: Snapshot (off-chain voting), Tally (UI).</div>
+    <div class="example">Uniswap DAO controla el protocolo Uniswap. MakerDAO emite DAI. ConstitutionDAO juntó US$47M en una semana para comprar la Constitución de EEUU (no ganaron la subasta pero el experimento fue legendario).</div>
+  </dd>
+
+  <dt id="tvl">TVL <span class="pron">"Total Value Locked"</span> <span class="tag">métrica</span></dt>
+  <dd>
+    <div class="simple">El valor total de fondos que está depositado en un protocolo DeFi. Es la métrica principal para medir cuán "grande" es un protocolo.</div>
+    <div class="tech"><strong>Técnico:</strong> Suma del valor en USD de todos los tokens depositados en los contratos del protocolo. Se publica en DefiLlama. Métrica útil pero manipulable (incentivos de yield farming inflan TVL artificialmente).</div>
+    <div class="example">TVL de Aave: ~US$15B. TVL de Lido: ~US$30B. TVL de DeFi global: ~US$100B (2025).</div>
+  </dd>
+
+  <dt id="yield-farming">Yield farming <span class="tag">caso uso</span></dt>
+  <dd>
+    <div class="simple">Depositar tokens en un protocolo y ganar más tokens como recompensa. Es el "ahorro" de DeFi pero con tasas mucho más altas (y riesgos también mayores).</div>
+    <div class="tech"><strong>Técnico:</strong> Estrategia de obtener rendimiento depositando assets en pools de liquidez, lending, vaults o staking. Rendimiento viene de fees del protocolo + emisión de tokens de governance + incentivos. Riesgos: impermanent loss, smart contract bugs, depegging, rug pulls.</div>
+    <div class="example">Depositás USDC en Aave y ganás 4% APY. Depositás ETH/USDC en Uniswap V3 y ganás fees de los swaps. APYs típicos: 2–20% (más alto = más riesgoso).</div>
+  </dd>
+
+  <dt id="lending">Lending <span class="pron">"préstamos"</span> <span class="tag">caso uso</span></dt>
+  <dd>
+    <div class="simple">Prestar tus tokens a otros y cobrar interés, o tomar prestado dejando otros tokens como garantía. Sin pedir crédito ni revisar tu CBU.</div>
+    <div class="tech"><strong>Técnico:</strong> Protocolos como Aave o Compound mantienen pools donde lenders depositan y borrowers retiran (con sobrecolateralización ~150%). Las tasas se ajustan dinámicamente según supply/demand. Si la colateralización cae bajo el threshold, hay liquidación automática.</div>
+    <div class="example">Aave (US$15B TVL), Compound (US$3B), Morpho. Argentinos los usan para tomar prestado en USDC contra ETH sin pasar por un banco.</div>
+  </dd>
+
+  <dt id="liquidity-pool">Liquidity pool <span class="pron">"pool de liquidez"</span> <span class="tag">caso uso</span></dt>
+  <dd>
+    <div class="simple">Una "alcancía" compartida entre dos tokens que permite que cualquiera los intercambie sin necesidad de un broker. La gente que aporta tokens al pool gana fees de cada swap.</div>
+    <div class="tech"><strong>Técnico:</strong> Implementación principal de los AMM (Automated Market Makers). El primero fue Uniswap V2 con la fórmula <code>x * y = k</code> (constant product). V3 introdujo concentrated liquidity. Riesgo principal para LPs: <strong>impermanent loss</strong> cuando el ratio de precios cambia mucho.</div>
+    <div class="example">El pool ETH/USDC de Uniswap V3 tiene billones en TVL. Aportar liquidez = ganar 0.05–1% del volumen como fees.</div>
+  </dd>
+
+  <dt id="governance">Governance token <span class="tag">token</span></dt>
+  <dd>
+    <div class="simple">Un token que te da derecho a votar en las decisiones de un protocolo. Mientras más tokens tenés, más peso tiene tu voto.</div>
+    <div class="tech"><strong>Técnico:</strong> ERC-20 con extensiones de governance (ERC-20Votes en OpenZeppelin). Soporta delegación (delegás tu poder de voto a otra address). Snapshot del balance se toma en momento de la propuesta.</div>
+    <div class="example">UNI (Uniswap), AAVE (Aave), MKR (MakerDAO), ENS (Ethereum Name Service).</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-seguridad">8. Seguridad</h2>
+
+<dl class="glossary">
+
+  <dt id="reentrancy">Reentrancy <span class="pron">"reentrada"</span> <span class="tag">vuln</span></dt>
+  <dd>
+    <div class="simple">El bug más famoso de la historia de smart contracts. Tu contrato manda plata a otro, ese otro contrato te llama de vuelta antes de que termines tu función, y termina robando todo. <strong>Costó US$60M a The DAO en 2016</strong> (causó el split entre ETH y ETC).</div>
+    <div class="tech"><strong>Técnico:</strong> Ataque donde un contrato malicioso explota el flujo de control re-entrando una función víctima antes de que actualice su estado. Mitigaciones: patrón <strong>Checks-Effects-Interactions (CEI)</strong>, <code>ReentrancyGuard</code> de OpenZeppelin (modifier <code>nonReentrant</code>).</div>
+    <div class="example">The DAO Hack 2016: atacante drenó US$60M de ETH explotando reentrancy en la función <code>splitDAO</code>. Resultado: hard fork de Ethereum en ETH (con rollback) y ETC (sin rollback).</div>
+  </dd>
+
+  <dt id="cei">Patrón CEI (Checks-Effects-Interactions) <span class="tag">seguridad</span></dt>
+  <dd>
+    <div class="simple">El orden correcto en el que debés escribir una función Solidity: primero <strong>chequeás</strong> condiciones, después <strong>actualizás</strong> tu estado, y al final <strong>interactuás</strong> con contratos externos. Si lo hacés en otro orden, sos vulnerable a reentrancy.</div>
+    <div class="tech"><strong>Técnico:</strong> 1️⃣ <strong>Checks</strong>: <code>require()</code>, validaciones, <code>onlyOwner</code>. 2️⃣ <strong>Effects</strong>: actualizar variables de estado (<code>balance[user] -= amount</code>). 3️⃣ <strong>Interactions</strong>: llamadas externas (<code>token.transfer()</code>, <code>address.call()</code>). Si interactuás antes de actualizar estado, el reentrancy te mata.</div>
+    <div class="example">En la clase 10 hacés un contrato vulnerable, lo atacás con Anvil, después aplicás CEI y ves cómo el ataque falla.</div>
+  </dd>
+
+  <dt id="access-control">AccessControl / RBAC <span class="tag">seguridad</span></dt>
+  <dd>
+    <div class="simple">Un sistema de permisos para tu contrato. Definís roles (admin, issuer, revoker) y solo los address con ese rol pueden ejecutar ciertas funciones.</div>
+    <div class="tech"><strong>Técnico:</strong> Patrón provisto por <code>OpenZeppelin/AccessControl.sol</code>. Define roles como <code>bytes32</code> hashes. Funciones: <code>grantRole</code>, <code>revokeRole</code>, <code>hasRole</code>. Modifier <code>onlyRole(ROLE_HASH)</code> protege funciones. <code>DEFAULT_ADMIN_ROLE</code> tiene permiso de administrar todos los demás roles.</div>
+    <div class="example">En el TP final: <code>DEFAULT_ADMIN</code> puede agregar issuers, <code>ISSUER_ROLE</code> puede mintear credenciales, <code>REVOKER_ROLE</code> puede revocarlas. Una persona puede tener varios roles.</div>
+  </dd>
+
+  <dt id="auditoria">Auditoría de smart contracts <span class="tag">profesión</span></dt>
+  <dd>
+    <div class="simple">Una revisión profunda de tu código por expertos antes de deployarlo a mainnet. Si tenés US$10M en juego, querés que firmas como Trail of Bits, OpenZeppelin o Coinspect (AR) revisen tu código.</div>
+    <div class="tech"><strong>Técnico:</strong> Proceso multi-fase: análisis estático (Slither, Mythril), revisión manual por auditor, fuzzing (Echidna), formal verification (Certora). Reportes públicos. Top firms: Trail of Bits, OpenZeppelin, Halborn, Cyfrin, ConsenSys Diligence, <strong>Coinspect (Argentina)</strong>. Costo típico: US$30k–500k por audit. Plataformas competitivas: Code4rena, Sherlock, Cantina.</div>
+    <div class="example">Sueldos top auditors: US$200k–500k/año (Cyfrin Salary Report 2025). Es uno de los roles mejor pagos en Web3.</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-mercado">9. Términos de mercado e industria</h2>
+
+<dl class="glossary">
+
+  <dt id="web3">Web3 <span class="tag">concepto</span></dt>
+  <dd>
+    <div class="simple">El término paraguas para todo el ecosistema de aplicaciones que usan blockchain. <strong>Web1</strong>: leés páginas estáticas (1990s). <strong>Web2</strong>: leés y escribís en plataformas centralizadas (Facebook, Google, 2000s). <strong>Web3</strong>: leés, escribís y <strong>poseés</strong> via blockchain.</div>
+    <div class="tech"><strong>Técnico:</strong> Stack de tecnologías: blockchain (Ethereum + L2s), smart contracts, wallets (MetaMask), almacenamiento descentralizado (IPFS, Arweave), identidad descentralizada (ENS, DIDs), oráculos (Chainlink). El término fue popularizado por Gavin Wood (cofundador de Ethereum) en 2014.</div>
+    <div class="example">Cuando alguien dice "estoy contratando perfiles Web3" generalmente quiere decir Solidity devs, smart contract auditors, frontend con wagmi, etc.</div>
+  </dd>
+
+  <dt id="regtech">Regtech <span class="pron">"Regulatory Technology"</span> <span class="tag">caso uso</span></dt>
+  <dd>
+    <div class="simple">Tecnología para cumplir regulaciones financieras de manera automatizada. En cripto = sistemas de KYC/AML on-chain, reportes a AFIP automáticos, contratos que cumplen MiCA (Europa) o ley de PSAV (Argentina).</div>
+    <div class="tech"><strong>Técnico:</strong> Combinación de smart contracts, ZKPs y APIs de identity providers. Frameworks: ERC-3643 (T-REX) para security tokens regulados. Casos: KYC on-chain con DIDs verificables, transfer restrictions automáticas, reporting fiscal.</div>
+    <div class="example">Empresas como Ripio y Lemon implementan KYC y reporting AFIP — un perfil con base técnica + regulatoria es muy buscado.</div>
+  </dd>
+
+  <dt id="kyc-on-chain">KYC on-chain <span class="pron">"Know Your Customer"</span> <span class="tag">caso uso</span></dt>
+  <dd>
+    <div class="simple">El "conocé a tu cliente" tradicional (mostrar DNI, foto, etc) hecho en blockchain con privacidad. Una vez verificado, podés probar que pasaste KYC sin revelar tus datos de nuevo.</div>
+    <div class="tech"><strong>Técnico:</strong> Combina DIDs (Decentralized Identifiers) + Verifiable Credentials (W3C) + ZKPs. Issuer (banco, exchange) emite credencial off-chain o como SBT on-chain. Usuario presenta proof selectivo a verifiers. Estándares: W3C VC, ERC-735, ERC-725.</div>
+    <div class="example">Mostrás que sos mayor de edad sin revelar tu fecha de nacimiento. Probás que pasaste KYC en un exchange para acceder a otra DApp sin re-verificar.</div>
+  </dd>
+
+  <dt id="did">DID <span class="pron">"Decentralized Identifier"</span> <span class="tag">identidad</span></dt>
+  <dd>
+    <div class="simple">Una identidad digital que no depende de ninguna empresa ni gobierno. Es como un usuario único universal que vos controlás con tu wallet.</div>
+    <div class="tech"><strong>Técnico:</strong> Estándar W3C. Formato: <code>did:method:identifier</code> (ej: <code>did:ethr:0xabc...</code>). El DID Document contiene claves públicas, métodos de verificación y service endpoints. Resoluble vía registry on-chain o sidetree.</div>
+    <div class="example">ENS (Ethereum Name Service): tu DID podría ser <code>tunombre.eth</code> en lugar de <code>0xabc1234...</code>. Lens Protocol: identidad social descentralizada.</div>
+  </dd>
+
+  <dt id="mev">MEV <span class="pron">"Maximal Extractable Value"</span> <span class="tag">avanzado</span></dt>
+  <dd>
+    <div class="simple">El "valor extra" que los validadores pueden ganar reordenando, incluyendo o excluyendo transacciones en un bloque. Es algo que en finanzas tradicionales se llamaría "front-running" pero en blockchain está semi-aceptado.</div>
+    <div class="tech"><strong>Técnico:</strong> Ganancias que un block producer puede capturar mediante: arbitraje, sandwich attacks (compras antes y después de una transacción grande), liquidaciones priorizadas. Mitigaciones: Flashbots, MEV-Boost, encrypted mempools. MEV anual en Ethereum: ~US$1B+.</div>
+    <div class="example">Si haces un swap grande en Uniswap, un bot puede comprar el token antes que vos (subiendo el precio) y vender después (bajándolo) — eso es un sandwich attack.</div>
+  </dd>
+
+  <dt id="bridge">Bridge <span class="pron">"puente"</span> <span class="tag">infra</span></dt>
+  <dd>
+    <div class="simple">Un servicio que te permite mover tokens de una blockchain a otra. Si tenés ETH en mainnet y querés llevarlo a Base (L2), usás un bridge.</div>
+    <div class="tech"><strong>Técnico:</strong> Mecanismos: lock-and-mint (lockás en chain A, mint wrapped token en chain B), atomic swaps, optimistic rollup withdrawals (1 semana de delay), zk rollup withdrawals (instantáneos en teoría). Bridges son uno de los mayores vectores de hack: hace 5 años se robaron ~US$2.5B de bridges.</div>
+    <div class="example">Bridge oficial de Base (bridge.base.org) para mover ETH entre L1 y L2. Bridges third-party: Hop, Across, Stargate. Cuidado: muchos hacks famosos (Ronin US$625M, Wormhole US$320M).</div>
+  </dd>
+
+</dl>
+
+<h2 id="bloque-empresas">10. Empresas y proyectos argentinos</h2>
+
+<dl class="glossary">
+
+  <dt id="lemon">Lemon <span class="tag">empresa AR</span></dt>
+  <dd>
+    <div class="simple">La fintech cripto argentina más grande. Tarjeta + wallet + exchange. Tienen 4 millones de usuarios.</div>
+    <div class="tech"><strong>Datos:</strong> Fundada en 2019 (Buenos Aires). Series B de US$20M en 2022 (DST Global, Tiger Global). 4M+ usuarios. Tarjeta Visa cripto. ~600k holders de Bitcoin (uno de los mayores BTC holders retail de LATAM).</div>
+    <div class="example">Si trabajás en Lemon como dev → usás Solidity, Next.js, AWS, integraciones con Bitcoin, Ethereum, Lightning Network.</div>
+  </dd>
+
+  <dt id="ripio">Ripio · wARS <span class="tag">empresa AR</span></dt>
+  <dd>
+    <div class="simple">El exchange cripto pionero de LATAM, fundado en BA. En 2025 lanzaron <strong>wARS</strong>, la primera stablecoin del peso argentino.</div>
+    <div class="tech"><strong>Datos:</strong> Fundada en 2013 por Sebastián Serrano. 1.5M+ usuarios. Levantó +US$50M (Series B liderada por DCG). Lanzó wARS en nov-2025 (stablecoin atada al peso argentino). Tiene operaciones en Argentina, Brasil, México, Colombia.</div>
+    <div class="example">wARS fue el primer caso real de tokenización del peso. Es Aave-compatible, así que podés hacer DeFi en pesos argentinos.</div>
+  </dd>
+
+  <dt id="decentraland">Decentraland <span class="tag">empresa AR</span></dt>
+  <dd>
+    <div class="simple">El metaverso fundado en Buenos Aires en 2017. Plataforma 3D donde la gente posee terrenos virtuales como NFTs y construye experiencias.</div>
+    <div class="tech"><strong>Datos:</strong> Fundado por Esteban Ordano + Ariel Meilich (BA, 2017). Plataforma sobre Ethereum. Token MANA + LAND (parcelas como NFT). Levantó US$25M en ICO 2017. Caso global insignia argentino.</div>
+    <div class="example">Marcas como Samsung, Adidas y Coca-Cola compraron LAND en Decentraland. Es un caso emblemático de NFTs aplicados.</div>
+  </dd>
+
+  <dt id="rather-labs">Rather Labs · Koibanx · Xcapit · Agrotoken <span class="tag">empresas AR</span></dt>
+  <dd>
+    <div class="simple">Las empresas argentinas Web3 que están contratando perfiles de la diplomatura.</div>
+    <div class="tech"><strong>Detalle:</strong>
+      <ul>
+        <li><strong>Rather Labs</strong> (BA): boutique de DeFi, NFTs y auditoría de smart contracts.</li>
+        <li><strong>Koibanx</strong>: infraestructura blockchain para bancos. Especializados en tokenización de activos.</li>
+        <li><strong>Xcapit</strong>: plataforma DeFi mobile-first.</li>
+        <li><strong>Agrotoken</strong>: tokenización de commodities agrícolas (soja, trigo, maíz).</li>
+        <li><strong>Coinspect</strong>: una de las firmas top de auditoría de smart contracts del mundo, con sede en BA.</li>
+      </ul>
+    </div>
+    <div class="example">Si te recibís de la diplomatura, estos son los lugares donde tirar tu CV con un proyecto en GitHub que muestra que sabés lo que sabés.</div>
+  </dd>
+
+</dl>
+
+<h2 id="siglas">Cheat sheet de siglas (para tener al lado mientras presentás)</h2>
+
+<table>
+  <thead>
+    <tr><th>Sigla</th><th>Qué significa</th><th>Una línea</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>EVM</strong></td><td>Ethereum Virtual Machine</td><td>La "máquina" donde corren los smart contracts</td></tr>
+    <tr><td><strong>L1 / L2</strong></td><td>Layer 1 / Layer 2</td><td>Cadena base (Ethereum) / Escalado encima (Base, Arbitrum)</td></tr>
+    <tr><td><strong>DApp</strong></td><td>Decentralized Application</td><td>App con backend en blockchain</td></tr>
+    <tr><td><strong>DAO</strong></td><td>Decentralized Autonomous Organization</td><td>Organización gobernada por smart contracts</td></tr>
+    <tr><td><strong>DeFi</strong></td><td>Decentralized Finance</td><td>Servicios financieros en blockchain</td></tr>
+    <tr><td><strong>NFT</strong></td><td>Non-Fungible Token</td><td>Token único (no intercambiable 1:1)</td></tr>
+    <tr><td><strong>SBT</strong></td><td>Soulbound Token</td><td>NFT no transferible — para credenciales</td></tr>
+    <tr><td><strong>RWA</strong></td><td>Real World Assets</td><td>Activos reales tokenizados (inmuebles, bonos)</td></tr>
+    <tr><td><strong>TVL</strong></td><td>Total Value Locked</td><td>Plata total depositada en un protocolo</td></tr>
+    <tr><td><strong>APY / APR</strong></td><td>Annual Percentage Yield / Rate</td><td>Rendimiento anualizado de un yield</td></tr>
+    <tr><td><strong>AMM</strong></td><td>Automated Market Maker</td><td>Algoritmo de intercambio automático (Uniswap)</td></tr>
+    <tr><td><strong>LP</strong></td><td>Liquidity Provider</td><td>El que aporta tokens a un pool y gana fees</td></tr>
+    <tr><td><strong>IL</strong></td><td>Impermanent Loss</td><td>Pérdida que sufre un LP cuando el ratio cambia</td></tr>
+    <tr><td><strong>ABI</strong></td><td>Application Binary Interface</td><td>JSON que describe las funciones de un contrato</td></tr>
+    <tr><td><strong>EOA</strong></td><td>Externally Owned Account</td><td>Cuenta normal con clave privada (no contrato)</td></tr>
+    <tr><td><strong>CA</strong></td><td>Contract Account</td><td>Cuenta que es un smart contract</td></tr>
+    <tr><td><strong>POW</strong></td><td>Proof of Work</td><td>Consenso por minería (Bitcoin)</td></tr>
+    <tr><td><strong>POS</strong></td><td>Proof of Stake</td><td>Consenso por stake (Ethereum)</td></tr>
+    <tr><td><strong>POA</strong></td><td>Proof of Authority</td><td>Consenso por autoridad designada (BFA)</td></tr>
+    <tr><td><strong>ZKP</strong></td><td>Zero-Knowledge Proof</td><td>Probar algo sin revelar el dato</td></tr>
+    <tr><td><strong>MEV</strong></td><td>Maximal Extractable Value</td><td>Plata extra que extraen validadores reordenando txs</td></tr>
+    <tr><td><strong>KYC</strong></td><td>Know Your Customer</td><td>Verificación de identidad de un usuario</td></tr>
+    <tr><td><strong>AML</strong></td><td>Anti-Money Laundering</td><td>Anti lavado de dinero — regulación financiera</td></tr>
+    <tr><td><strong>DID</strong></td><td>Decentralized Identifier</td><td>Identidad digital sin depender de empresas</td></tr>
+    <tr><td><strong>VC</strong></td><td>Verifiable Credential</td><td>Credencial digital firmada y verificable</td></tr>
+    <tr><td><strong>IPFS</strong></td><td>InterPlanetary File System</td><td>Storage descentralizado de archivos</td></tr>
+    <tr><td><strong>CID</strong></td><td>Content Identifier</td><td>Hash que identifica un archivo en IPFS</td></tr>
+    <tr><td><strong>ENS</strong></td><td>Ethereum Name Service</td><td>DNS de Ethereum (nombre.eth → 0xabc...)</td></tr>
+    <tr><td><strong>ERC</strong></td><td>Ethereum Request for Comments</td><td>Estándar técnico (ERC-20, ERC-721, etc)</td></tr>
+    <tr><td><strong>EIP</strong></td><td>Ethereum Improvement Proposal</td><td>Propuesta de mejora para Ethereum</td></tr>
+    <tr><td><strong>RPC</strong></td><td>Remote Procedure Call</td><td>API para hablar con un nodo de la red</td></tr>
+    <tr><td><strong>PSAV</strong></td><td>Proveedor de Servicios de Activos Virtuales</td><td>Régimen regulatorio cripto en Argentina (2024)</td></tr>
+    <tr><td><strong>MiCA</strong></td><td>Markets in Crypto-Assets</td><td>Regulación cripto de la UE (2024)</td></tr>
+    <tr><td><strong>BFA</strong></td><td>Blockchain Federal Argentina</td><td>Red blockchain pública argentina</td></tr>
+    <tr><td><strong>CEX</strong></td><td>Centralized Exchange</td><td>Exchange tradicional (Binance, Coinbase, Lemon)</td></tr>
+    <tr><td><strong>DEX</strong></td><td>Decentralized Exchange</td><td>Exchange en smart contracts (Uniswap)</td></tr>
+    <tr><td><strong>CEI</strong></td><td>Checks-Effects-Interactions</td><td>Patrón de seguridad para evitar reentrancy</td></tr>
+    <tr><td><strong>CBDC</strong></td><td>Central Bank Digital Currency</td><td>Moneda digital emitida por un banco central</td></tr>
+    <tr><td><strong>P2P</strong></td><td>Peer-to-Peer</td><td>De usuario a usuario, sin intermediario</td></tr>
+    <tr><td><strong>SC</strong></td><td>Smart Contract</td><td>Programa que vive en blockchain</td></tr>
+    <tr><td><strong>TPS</strong></td><td>Transactions Per Second</td><td>Métrica de velocidad de una blockchain</td></tr>
+    <tr><td><strong>SDK</strong></td><td>Software Development Kit</td><td>Conjunto de herramientas para desarrollar</td></tr>
+    <tr><td><strong>API</strong></td><td>Application Programming Interface</td><td>Interfaz programática para hablar con un servicio</td></tr>
+  </tbody>
+</table>
+
+<h2>Si te quedás trabado en la presentación</h2>
+
+<blockquote>
+  <strong>Trucos para cuando te preguntan algo y no te acordás:</strong>
+  <ul>
+    <li><strong>"Buenísima pregunta, dame un segundo y respondo en Q&amp;A"</strong> — te da tiempo para abrir esta página y leer.</li>
+    <li><strong>"Es un tema profundo, te lo respondo por mail con el detalle correcto"</strong> — mejor admitir que no sabés que inventar mal.</li>
+    <li><strong>"En la diplomatura cubrimos eso en el módulo X"</strong> — redirigís hacia el programa sin tener que explicarlo en el momento.</li>
+    <li><strong>"¿Alguien del público tiene experiencia con eso?"</strong> — convertís Q&amp;A en discusión grupal y ganás credibilidad.</li>
+  </ul>
+</blockquote>
+
+<p style="margin-top: 32px; color: var(--gray); font-size: 14px;">
+  Última actualización: mayo 2026 · paleta morada LICDIA UNLu · Director: Dr. David Petrocelli
+</p>
+
+</main>
+</div>
+
+<footer class="unlu-footer">
+  <div>
+    UNLu · Departamento de Ciencias Básicas · LICDIA · Glosario Diplomatura Blockchain
+    <strong>2026</strong> · Director: Dr. David Petrocelli
+  </div>
+</footer>
+
+</body>
+</html>
